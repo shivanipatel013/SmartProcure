@@ -218,7 +218,7 @@ function RaiseRequest() {
                 <strong>{getUserName()}</strong>
                 <span>{user?.role || "USER"}</span>
               </div>
-              <ChevronDown size={14} color="#64748b" />
+              <ChevronDown size={14} color="var(--sp-text-muted)" />
             </div>
           </div>
         </header>
@@ -252,7 +252,7 @@ function RaiseRequest() {
                   border: `1px solid ${
                     message.type === "success"
                       ? "#bbf7d0"
-                      : "#fecaca"
+                      : "rgba(239, 68, 68, 0.3)"
                   }`,
                   display: "flex",
                   alignItems: "center",
@@ -273,7 +273,7 @@ function RaiseRequest() {
             <form onSubmit={handleOpenConfirm} style={{ display: "flex", flexDirection: "column", gap: "20px" }}>
               {/* Product Selection Dropdown */}
               <div>
-                <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "#0f172a", fontSize: "14px" }}>
+                <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-main)", fontSize: "14px" }}>
                   <Package size={16} color="#0284c7" />
                   <span>Product Name *</span>
                 </label>
@@ -284,10 +284,10 @@ function RaiseRequest() {
                   style={{
                     width: "100%",
                     padding: "12px 14px",
-                    background: "#ffffff",
+                    background: "var(--sp-card-bg)",
                     border: "1px solid #cbd5e1",
                     borderRadius: "10px",
-                    color: "#0f172a",
+                    color: "var(--sp-text-main)",
                     fontSize: "14px",
                     fontWeight: "600"
                   }}
@@ -303,7 +303,7 @@ function RaiseRequest() {
               {/* Fixed Price & Quantity Display */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
-                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "#64748b", fontSize: "12px", textTransform: "uppercase" }}>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-muted)", fontSize: "12px", textTransform: "uppercase" }}>
                     <DollarSign size={14} color="#15803d" />
                     <span>Unit Price (Predefined Fixed Price)</span>
                   </label>
@@ -311,7 +311,7 @@ function RaiseRequest() {
                     style={{
                       width: "100%",
                       padding: "12px 14px",
-                      background: "#f8fafc",
+                      background: "var(--sp-card-surface)",
                       border: "1px solid #e2e8f0",
                       borderRadius: "10px",
                       color: "#0284c7",
@@ -323,12 +323,12 @@ function RaiseRequest() {
                     }}
                   >
                     <span>₹{unitPrice.toLocaleString()}</span>
-                    <span style={{ fontSize: "11px", color: "#64748b", fontWeight: "600", textTransform: "uppercase" }}>Locked Rate</span>
+                    <span style={{ fontSize: "11px", color: "var(--sp-text-muted)", fontWeight: "600", textTransform: "uppercase" }}>Locked Rate</span>
                   </div>
                 </div>
 
                 <div>
-                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "#0f172a", fontSize: "12px", textTransform: "uppercase" }}>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-main)", fontSize: "12px", textTransform: "uppercase" }}>
                     <Calculator size={14} color="#0284c7" />
                     <span>Quantity Required *</span>
                   </label>
@@ -344,10 +344,10 @@ function RaiseRequest() {
                     style={{
                       width: "100%",
                       padding: "12px 14px",
-                      background: "#ffffff",
+                      background: "var(--sp-card-bg)",
                       border: "1px solid #cbd5e1",
                       borderRadius: "10px",
-                      color: "#0f172a",
+                      color: "var(--sp-text-main)",
                       fontSize: "15px",
                       fontWeight: "700"
                     }}
@@ -358,17 +358,17 @@ function RaiseRequest() {
               {/* Auto-Populated Category & Department */}
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "16px" }}>
                 <div>
-                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "#64748b", fontSize: "12px", textTransform: "uppercase" }}>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-muted)", fontSize: "12px", textTransform: "uppercase" }}>
                     <Tag size={14} color="#8b5cf6" />
                     <span>Category</span>
                   </label>
                   <div
                     style={{
                       padding: "12px 14px",
-                      background: "#f8fafc",
+                      background: "var(--sp-card-surface)",
                       border: "1px solid #e2e8f0",
                       borderRadius: "10px",
-                      color: "#334155",
+                      color: "var(--sp-text-main)",
                       fontSize: "13px",
                       fontWeight: "600"
                     }}
@@ -378,17 +378,17 @@ function RaiseRequest() {
                 </div>
 
                 <div>
-                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "#64748b", fontSize: "12px", textTransform: "uppercase" }}>
+                  <label style={{ display: "flex", alignItems: "center", gap: "6px", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-muted)", fontSize: "12px", textTransform: "uppercase" }}>
                     <Building2 size={14} color="#0284c7" />
                     <span>Department</span>
                   </label>
                   <div
                     style={{
                       padding: "12px 14px",
-                      background: "#f8fafc",
+                      background: "var(--sp-card-surface)",
                       border: "1px solid #e2e8f0",
                       borderRadius: "10px",
-                      color: "#334155",
+                      color: "var(--sp-text-main)",
                       fontSize: "13px",
                       fontWeight: "600"
                     }}
@@ -400,7 +400,7 @@ function RaiseRequest() {
 
               {/* Remarks / Business Justification */}
               <div>
-                <label style={{ display: "block", marginBottom: "8px", fontWeight: "700", color: "#0f172a", fontSize: "13px" }}>
+                <label style={{ display: "block", marginBottom: "8px", fontWeight: "700", color: "var(--sp-text-main)", fontSize: "13px" }}>
                   Remarks / Business Purpose
                 </label>
                 <textarea
@@ -412,10 +412,10 @@ function RaiseRequest() {
                   style={{
                     width: "100%",
                     padding: "12px 14px",
-                    background: "#ffffff",
+                    background: "var(--sp-card-bg)",
                     border: "1px solid #cbd5e1",
                     borderRadius: "10px",
-                    color: "#0f172a",
+                    color: "var(--sp-text-main)",
                     fontSize: "14px",
                     resize: "vertical"
                   }}
@@ -426,7 +426,7 @@ function RaiseRequest() {
               <div
                 style={{
                   padding: "18px 22px",
-                  background: "#f0f9ff",
+                  background: "rgba(56,189,248,0.1)",
                   border: "1px solid #bae6fd",
                   borderRadius: "12px",
                   display: "flex",
@@ -437,10 +437,10 @@ function RaiseRequest() {
                 }}
               >
                 <div>
-                  <div style={{ fontSize: "12px", color: "#64748b", textTransform: "uppercase", letterSpacing: "0.5px", fontWeight: "700" }}>
+                  <div style={{ fontSize: "12px", color: "var(--sp-text-muted)", textTransform: "uppercase", letterSpacing: "0.5px", fontWeight: "700" }}>
                     Total Amount (Calculated Dynamically)
                   </div>
-                  <div style={{ fontSize: "13px", color: "#0369a1", marginTop: "2px", fontWeight: "500" }}>
+                  <div style={{ fontSize: "13px", color: "#0ea5e9", marginTop: "2px", fontWeight: "500" }}>
                     ₹{unitPrice.toLocaleString()} × {numQty} unit{numQty > 1 ? "s" : ""}
                   </div>
                 </div>
@@ -478,12 +478,12 @@ function RaiseRequest() {
           <div className="modal-card" style={{ maxWidth: "480px" }}>
             <div className="modal-header">
               <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-                <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "#e0f2fe", color: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <div style={{ width: "36px", height: "36px", borderRadius: "10px", background: "rgba(14, 165, 233, 0.1)", color: "#0284c7", display: "flex", alignItems: "center", justifyContent: "center" }}>
                   <AlertCircle size={20} />
                 </div>
                 <div>
-                  <h2 style={{ fontSize: "18px", fontWeight: "800", color: "#0f172a", margin: 0 }}>Submit Procurement Request?</h2>
-                  <p style={{ fontSize: "12px", color: "#64748b", margin: 0 }}>Please review the requisition summary below before submitting.</p>
+                  <h2 style={{ fontSize: "18px", fontWeight: "800", color: "var(--sp-text-main)", margin: 0 }}>Submit Procurement Request?</h2>
+                  <p style={{ fontSize: "12px", color: "var(--sp-text-muted)", margin: 0 }}>Please review the requisition summary below before submitting.</p>
                 </div>
               </div>
               <button
@@ -496,25 +496,25 @@ function RaiseRequest() {
             </div>
 
             <div className="modal-body" style={{ display: "flex", flexDirection: "column", gap: "14px", padding: "20px 24px" }}>
-              <div style={{ background: "#f8fafc", padding: "14px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+              <div style={{ background: "var(--sp-card-surface)", padding: "14px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
-                  <span style={{ color: "#64748b" }}>Product:</span>
-                  <strong style={{ color: "#0f172a" }}>{selectedProduct?.name}</strong>
+                  <span style={{ color: "var(--sp-text-muted)" }}>Product:</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{selectedProduct?.name}</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
-                  <span style={{ color: "#64748b" }}>Department:</span>
-                  <strong style={{ color: "#0f172a" }}>{selectedProduct?.departmentName}</strong>
+                  <span style={{ color: "var(--sp-text-muted)" }}>Department:</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{selectedProduct?.departmentName}</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
-                  <span style={{ color: "#64748b" }}>Quantity:</span>
-                  <strong style={{ color: "#0f172a" }}>{numQty} unit{numQty > 1 ? "s" : ""}</strong>
+                  <span style={{ color: "var(--sp-text-muted)" }}>Quantity:</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{numQty} unit{numQty > 1 ? "s" : ""}</strong>
                 </div>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "8px", fontSize: "13px" }}>
-                  <span style={{ color: "#64748b" }}>Unit Price:</span>
-                  <strong style={{ color: "#0f172a" }}>₹{unitPrice.toLocaleString()}</strong>
+                  <span style={{ color: "var(--sp-text-muted)" }}>Unit Price:</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>₹{unitPrice.toLocaleString()}</strong>
                 </div>
                 <div style={{ borderTop: "1px dashed #cbd5e1", paddingTop: "8px", marginTop: "8px", display: "flex", justifyContent: "space-between", fontSize: "15px" }}>
-                  <strong style={{ color: "#0f172a" }}>Total Amount:</strong>
+                  <strong style={{ color: "var(--sp-text-main)" }}>Total Amount:</strong>
                   <strong style={{ color: "#0284c7", fontSize: "17px" }}>₹{totalAmount.toLocaleString()}</strong>
                 </div>
               </div>

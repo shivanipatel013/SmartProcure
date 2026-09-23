@@ -259,7 +259,7 @@ function MyRequests() {
                 <strong>{user?.username || "User"}</strong>
                 <span>{user?.role || "USER"}</span>
               </div>
-              <ChevronDown size={14} color="#64748b" />
+              <ChevronDown size={14} color="var(--sp-text-muted)" />
             </div>
           </div>
         </header>
@@ -290,7 +290,7 @@ function MyRequests() {
               marginBottom: "20px",
               backgroundColor: message.type === "success" ? "#f0fdf4" : "#fef2f2",
               color: message.type === "success" ? "#15803d" : "#b91c1c",
-              border: `1px solid ${message.type === "success" ? "#bbf7d0" : "#fecaca"}`,
+              border: `1px solid ${message.type === "success" ? "#bbf7d0" : "rgba(239, 68, 68, 0.3)"}`,
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between",
@@ -333,8 +333,8 @@ function MyRequests() {
                       fontWeight: "700",
                       cursor: "pointer",
                       border: filter === tab.key ? "none" : "1px solid #cbd5e1",
-                      background: filter === tab.key ? "var(--sp-primary-gradient)" : "#ffffff",
-                      color: filter === tab.key ? "#ffffff" : "#475569",
+                      background: filter === tab.key ? "var(--sp-primary-gradient)" : "var(--sp-card-bg)",
+                      color: filter === tab.key ? "var(--sp-card-bg)" : "var(--sp-text-sub)",
                       boxShadow: filter === tab.key ? "0 2px 8px var(--sp-primary-glow)" : "none"
                     }}
                   >
@@ -344,7 +344,7 @@ function MyRequests() {
               </div>
 
               <div style={{ position: "relative", minWidth: "260px" }}>
-                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "#64748b" }} />
+                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--sp-text-muted)" }} />
                 <input
                   type="text"
                   placeholder="Search item, category, dept..."
@@ -358,8 +358,8 @@ function MyRequests() {
             {/* Table */}
             <div style={{ width: "100%", overflowX: "auto" }}>
               {loading ? (
-                <div style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
-                  <RefreshCw size={24} className="animate-spin" style={{ margin: "0 auto 10px", color: "#0284c7" }} />
+                <div style={{ textAlign: "center", padding: "40px", color: "var(--sp-text-muted)" }}>
+                  <RefreshCw size={24} className="animate-spin" style={{ margin: "0 auto 10px", color: "#00b4d8" }} />
                   <p>Loading your requisitions...</p>
                 </div>
               ) : (
@@ -384,8 +384,8 @@ function MyRequests() {
                             <span style={{
                               fontFamily: "monospace",
                               fontWeight: "700",
-                              color: "#0284c7",
-                              background: "#e0f2fe",
+                              color: "#00b4d8",
+                              background: "rgba(14, 165, 233, 0.1)",
                               padding: "4px 8px",
                               borderRadius: "6px"
                             }}>
@@ -393,24 +393,24 @@ function MyRequests() {
                             </span>
                           </td>
                           <td>
-                            <strong style={{ color: "#0f172a", display: "block" }}>{r.name}</strong>
-                            <span style={{ fontSize: "12px", color: "#64748b" }}>
+                            <strong style={{ color: "var(--sp-text-main)", display: "block" }}>{r.name}</strong>
+                            <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>
                               {r.category?.categoryName || "General Item"}
                             </span>
                           </td>
                           <td>
                             <span style={{
-                              background: "#f1f5f9",
+                              background: "var(--sp-card-bg)",
                               padding: "4px 10px",
                               borderRadius: "6px",
                               fontSize: "12px",
-                              color: "#334155"
+                              color: "var(--sp-text-sub)"
                             }}>
                               {r.department?.departmentName || "General"}
                             </span>
                           </td>
                           <td>
-                            <span style={{ color: "#475569" }}>
+                            <span style={{ color: "var(--sp-text-sub)" }}>
                               {r.numberOfQuantities} × ₹{r.pricePerProduct}
                             </span>
                           </td>
@@ -418,7 +418,7 @@ function MyRequests() {
                             <strong style={{ color: "#15803d", fontSize: "15px" }}>₹{r.totalPrice}</strong>
                           </td>
                           <td>{getStatusBadge(r.status)}</td>
-                          <td style={{ color: "#64748b", fontSize: "13px" }}>
+                          <td style={{ color: "var(--sp-text-muted)", fontSize: "13px" }}>
                             {r.createdDate ? new Date(r.createdDate).toLocaleDateString() : "Recently"}
                           </td>
                           <td style={{ textAlign: "center" }}>
@@ -430,9 +430,9 @@ function MyRequests() {
                                 style={{
                                   padding: "6px 10px",
                                   borderRadius: "6px",
-                                  background: "#f0f9ff",
-                                  border: "1px solid #bae6fd",
-                                  color: "#0284c7",
+                                  background: "var(--sp-card-surface)",
+                                  border: "1px solid rgba(255,255,255,0.05)",
+                                  color: "#00b4d8",
                                   cursor: "pointer"
                                 }}
                               >
@@ -447,7 +447,7 @@ function MyRequests() {
                                   style={{
                                     padding: "6px 10px",
                                     borderRadius: "6px",
-                                    background: "#fef3c7",
+                                    background: "rgba(245, 158, 11, 0.1)",
                                     border: "1px solid #fde68a",
                                     color: "#d97706",
                                     cursor: "pointer",
@@ -470,7 +470,7 @@ function MyRequests() {
                                   style={{
                                     padding: "6px 10px",
                                     borderRadius: "6px",
-                                    background: "#fee2e2",
+                                    background: "rgba(239, 68, 68, 0.1)",
                                     border: "1px solid #fecaca",
                                     color: "#dc2626",
                                     cursor: "pointer"
@@ -485,7 +485,7 @@ function MyRequests() {
                       ))
                     ) : (
                       <tr>
-                        <td colSpan="8" style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
+                        <td colSpan="8" style={{ textAlign: "center", padding: "40px", color: "var(--sp-text-muted)" }}>
                           No matching requisitions found.
                         </td>
                       </tr>
@@ -507,14 +507,14 @@ function MyRequests() {
                 gap: "14px",
                 background: "#fafafa"
               }}>
-                <div style={{ fontSize: "13px", color: "#64748b" }}>
-                  Showing <strong style={{ color: "#0f172a" }}>{(currentPage - 1) * pageSize + 1}</strong> to{" "}
-                  <strong style={{ color: "#0f172a" }}>{Math.min(currentPage * pageSize, totalItems)}</strong> of{" "}
-                  <strong style={{ color: "#0f172a" }}>{totalItems}</strong> requisitions (Sorted in ASC order)
+                <div style={{ fontSize: "13px", color: "var(--sp-text-muted)" }}>
+                  Showing <strong style={{ color: "var(--sp-text-main)" }}>{(currentPage - 1) * pageSize + 1}</strong> to{" "}
+                  <strong style={{ color: "var(--sp-text-main)" }}>{Math.min(currentPage * pageSize, totalItems)}</strong> of{" "}
+                  <strong style={{ color: "var(--sp-text-main)" }}>{totalItems}</strong> requisitions (Sorted in ASC order)
                 </div>
 
                 <div style={{ display: "flex", alignItems: "center", gap: "12px" }}>
-                  <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "#64748b" }}>
+                  <div style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "12px", color: "var(--sp-text-muted)" }}>
                     <span>Rows per page:</span>
                     <select
                       value={pageSize}
@@ -524,10 +524,10 @@ function MyRequests() {
                       }}
                       style={{
                         padding: "4px 8px",
-                        background: "#ffffff",
+                        background: "var(--sp-card-bg)",
                         border: "1px solid var(--sp-border)",
                         borderRadius: "6px",
-                        color: "#0f172a",
+                        color: "var(--sp-text-main)",
                         fontSize: "12px"
                       }}
                     >
@@ -544,9 +544,9 @@ function MyRequests() {
                       style={{
                         padding: "6px 12px",
                         borderRadius: "6px",
-                        background: currentPage <= 1 ? "#f1f5f9" : "#ffffff",
+                        background: currentPage <= 1 ? "var(--sp-card-surface)" : "var(--sp-card-bg)",
                         border: "1px solid var(--sp-border)",
-                        color: currentPage <= 1 ? "#94a3b8" : "#0f172a",
+                        color: currentPage <= 1 ? "#94a3b8" : "var(--sp-text-main)",
                         cursor: currentPage <= 1 ? "not-allowed" : "pointer",
                         display: "flex",
                         alignItems: "center",
@@ -560,9 +560,9 @@ function MyRequests() {
                     <span style={{
                       padding: "6px 12px",
                       borderRadius: "6px",
-                      background: "#e0f2fe",
-                      border: "1px solid #bae6fd",
-                      color: "#0284c7",
+                      background: "rgba(14, 165, 233, 0.1)",
+                      border: "1px solid rgba(255,255,255,0.05)",
+                      color: "#00b4d8",
                       fontSize: "12px",
                       fontWeight: "700"
                     }}>
@@ -575,9 +575,9 @@ function MyRequests() {
                       style={{
                         padding: "6px 12px",
                         borderRadius: "6px",
-                        background: currentPage >= totalPages ? "#f1f5f9" : "#ffffff",
+                        background: currentPage >= totalPages ? "var(--sp-card-surface)" : "var(--sp-card-bg)",
                         border: "1px solid var(--sp-border)",
-                        color: currentPage >= totalPages ? "#94a3b8" : "#0f172a",
+                        color: currentPage >= totalPages ? "#94a3b8" : "var(--sp-text-main)",
                         cursor: currentPage >= totalPages ? "not-allowed" : "pointer",
                         display: "flex",
                         alignItems: "center",
@@ -609,26 +609,26 @@ function MyRequests() {
           padding: "20px"
         }}>
           <div style={{
-            background: "#ffffff",
+            background: "var(--sp-card-bg)",
             borderRadius: "16px",
             width: "100%",
             maxWidth: "500px",
-            border: "1px solid #e2e8f0",
+            border: "1px solid rgba(255,255,255,0.05)",
             boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
             overflow: "hidden"
           }}>
             <div style={{
               padding: "16px 22px",
-              background: "#f8fafc",
+              background: "var(--sp-card-surface)",
               borderBottom: "1px solid #e2e8f0",
               display: "flex",
               alignItems: "center",
               justifyContent: "space-between"
             }}>
-              <div style={{ fontWeight: "800", color: "#0f172a", fontSize: "16px" }}>
+              <div style={{ fontWeight: "800", color: "var(--sp-text-main)", fontSize: "16px" }}>
                 Requisition Breakdown • REQ-{selectedRequest.productId}
               </div>
-              <button onClick={() => setSelectedRequest(null)} style={{ background: "none", border: "none", color: "#64748b", cursor: "pointer" }}>
+              <button onClick={() => setSelectedRequest(null)} style={{ background: "none", border: "none", color: "var(--sp-text-muted)", cursor: "pointer" }}>
                 <X size={18} />
               </button>
             </div>
@@ -644,8 +644,8 @@ function MyRequests() {
                 alignItems: "center"
               }}>
                 <div>
-                  <div style={{ fontWeight: "800", fontSize: "16px", color: "#0f172a" }}>{selectedRequest.name}</div>
-                  <div style={{ fontSize: "12px", color: "#64748b" }}>{selectedRequest.category?.categoryName || "General Item"}</div>
+                  <div style={{ fontWeight: "800", fontSize: "16px", color: "var(--sp-text-main)" }}>{selectedRequest.name}</div>
+                  <div style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>{selectedRequest.category?.categoryName || "General Item"}</div>
                 </div>
                 <div style={{ fontSize: "20px", fontWeight: "900", color: "#15803d" }}>
                   ₹{selectedRequest.totalPrice}
@@ -654,31 +654,31 @@ function MyRequests() {
 
               <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", fontSize: "13px" }}>
                 <div>
-                  <span style={{ color: "#64748b", display: "block" }}>Department</span>
-                  <strong style={{ color: "#0f172a" }}>{selectedRequest.department?.departmentName || "-"}</strong>
+                  <span style={{ color: "var(--sp-text-muted)", display: "block" }}>Department</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{selectedRequest.department?.departmentName || "-"}</strong>
                 </div>
                 <div>
-                  <span style={{ color: "#64748b", display: "block" }}>Requested On</span>
-                  <strong style={{ color: "#0f172a" }}>{selectedRequest.createdDate ? new Date(selectedRequest.createdDate).toLocaleDateString() : "-"}</strong>
+                  <span style={{ color: "var(--sp-text-muted)", display: "block" }}>Requested On</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{selectedRequest.createdDate ? new Date(selectedRequest.createdDate).toLocaleDateString() : "-"}</strong>
                 </div>
                 <div>
-                  <span style={{ color: "#64748b", display: "block" }}>Quantity</span>
-                  <strong style={{ color: "#0f172a" }}>{selectedRequest.numberOfQuantities} Units</strong>
+                  <span style={{ color: "var(--sp-text-muted)", display: "block" }}>Quantity</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>{selectedRequest.numberOfQuantities} Units</strong>
                 </div>
                 <div>
-                  <span style={{ color: "#64748b", display: "block" }}>Rate / Unit</span>
-                  <strong style={{ color: "#0f172a" }}>₹{selectedRequest.pricePerProduct}</strong>
+                  <span style={{ color: "var(--sp-text-muted)", display: "block" }}>Rate / Unit</span>
+                  <strong style={{ color: "var(--sp-text-main)" }}>₹{selectedRequest.pricePerProduct}</strong>
                 </div>
                 <div>
-                  <span style={{ color: "#64748b", display: "block" }}>Status</span>
+                  <span style={{ color: "var(--sp-text-muted)", display: "block" }}>Status</span>
                   <div>{getStatusBadge(selectedRequest.status)}</div>
                 </div>
               </div>
 
               {selectedRequest.description && (
-                <div style={{ background: "#f8fafc", padding: "12px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-                  <span style={{ color: "#64748b", fontSize: "12px", display: "block", marginBottom: "4px", fontWeight: "700" }}>Description / Justification</span>
-                  <p style={{ margin: 0, fontSize: "13px", color: "#334155" }}>{selectedRequest.description}</p>
+                <div style={{ background: "var(--sp-card-surface)", padding: "12px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                  <span style={{ color: "var(--sp-text-muted)", fontSize: "12px", display: "block", marginBottom: "4px", fontWeight: "700" }}>Description / Justification</span>
+                  <p style={{ margin: 0, fontSize: "13px", color: "var(--sp-text-sub)" }}>{selectedRequest.description}</p>
                 </div>
               )}
 
@@ -708,11 +708,11 @@ function MyRequests() {
           padding: "20px"
         }}>
           <div style={{
-            background: "#ffffff",
+            background: "var(--sp-card-bg)",
             borderRadius: "16px",
             width: "100%",
             maxWidth: "460px",
-            border: "1px solid #e2e8f0",
+            border: "1px solid rgba(255,255,255,0.05)",
             boxShadow: "0 20px 40px rgba(0,0,0,0.15)",
             overflow: "hidden"
           }}>
@@ -727,19 +727,19 @@ function MyRequests() {
               <div style={{ fontWeight: "800", color: "#a16207", fontSize: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
                 <Star size={18} fill="#a16207" /> Rate Product & Supplier
               </div>
-              <button onClick={() => setRatingRequest(null)} style={{ background: "none", border: "none", color: "#64748b", cursor: "pointer" }}>
+              <button onClick={() => setRatingRequest(null)} style={{ background: "none", border: "none", color: "var(--sp-text-muted)", cursor: "pointer" }}>
                 <X size={18} />
               </button>
             </div>
 
             <form onSubmit={handleSubmitRating} style={{ padding: "22px", display: "flex", flexDirection: "column", gap: "16px" }}>
-              <div style={{ background: "#f8fafc", padding: "12px 16px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-                <strong style={{ color: "#0f172a", display: "block" }}>{ratingRequest.name}</strong>
-                <span style={{ fontSize: "12px", color: "#64748b" }}>REQ-{ratingRequest.productId} • ₹{ratingRequest.totalPrice}</span>
+              <div style={{ background: "var(--sp-card-surface)", padding: "12px 16px", borderRadius: "8px", border: "1px solid rgba(255,255,255,0.05)" }}>
+                <strong style={{ color: "var(--sp-text-main)", display: "block" }}>{ratingRequest.name}</strong>
+                <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>REQ-{ratingRequest.productId} • ₹{ratingRequest.totalPrice}</span>
               </div>
 
               <div>
-                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>Select Supplier to Rate</label>
+                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "var(--sp-text-main)" }}>Select Supplier to Rate</label>
                 <select
                   value={ratingSupplierId}
                   onChange={e => setRatingSupplierId(e.target.value)}
@@ -753,7 +753,7 @@ function MyRequests() {
               </div>
 
               <div>
-                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>Star Rating (1 to 5)</label>
+                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "var(--sp-text-main)" }}>Star Rating (1 to 5)</label>
                 <div style={{ display: "flex", gap: "8px", alignItems: "center" }}>
                   {[1, 2, 3, 4, 5].map(star => (
                     <button
@@ -769,7 +769,7 @@ function MyRequests() {
                     >
                       <Star
                         size={26}
-                        color={star <= ratingValue ? "#f59e0b" : "#cbd5e1"}
+                        color={star <= ratingValue ? "#f59e0b" : "rgba(255,255,255,0.1)"}
                         fill={star <= ratingValue ? "#f59e0b" : "none"}
                       />
                     </button>
@@ -781,7 +781,7 @@ function MyRequests() {
               </div>
 
               <div>
-                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>Feedback / Review</label>
+                <label style={{ display: "block", marginBottom: "6px", fontSize: "13px", fontWeight: "700", color: "var(--sp-text-main)" }}>Feedback / Review</label>
                 <textarea
                   placeholder="Share delivery speed, item quality, or packaging feedback..."
                   rows={3}

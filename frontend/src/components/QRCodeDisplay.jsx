@@ -49,7 +49,7 @@ export default function QRCodeDisplay({ value, size = 180, amount, orderId }) {
     <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px" }}>
       <div
         style={{
-          background: "#ffffff",
+          background: "var(--sp-card-bg)",
           padding: "14px",
           borderRadius: "14px",
           border: "2px solid #0284c7",
@@ -60,7 +60,7 @@ export default function QRCodeDisplay({ value, size = 180, amount, orderId }) {
       >
         <svg width={size} height={size} viewBox={`0 0 ${size} ${size}`}>
           {/* Background */}
-          <rect width={size} height={size} fill="#ffffff" />
+          <rect width={size} height={size} fill="var(--sp-card-bg)" />
 
           {/* QR Code Cells */}
           {Array.from({ length: gridSize }).map((_, r) =>
@@ -73,7 +73,7 @@ export default function QRCodeDisplay({ value, size = 180, amount, orderId }) {
                     y={r * cellSize}
                     width={cellSize}
                     height={cellSize}
-                    fill="#0f172a"
+                    fill="var(--sp-text-main)"
                     rx={cellSize * 0.15}
                   />
                 );
@@ -88,7 +88,7 @@ export default function QRCodeDisplay({ value, size = 180, amount, orderId }) {
             x={size / 2}
             y={size / 2 + 4}
             textAnchor="middle"
-            fill="#ffffff"
+            fill="var(--sp-card-bg)"
             fontSize={size * 0.08}
             fontWeight="900"
             fontFamily="system-ui, sans-serif"
@@ -102,7 +102,7 @@ export default function QRCodeDisplay({ value, size = 180, amount, orderId }) {
         <div style={{ fontSize: "16px", fontWeight: "900", color: "#0284c7" }}>
           ₹{amount ? Number(amount).toLocaleString() : "0"}
         </div>
-        <div style={{ fontSize: "12px", fontFamily: "monospace", color: "#64748b", marginTop: "2px" }}>
+        <div style={{ fontSize: "12px", fontFamily: "monospace", color: "var(--sp-text-muted)", marginTop: "2px" }}>
           Order Ref: <b>{orderId || "ORD-PENDING"}</b>
         </div>
       </div>

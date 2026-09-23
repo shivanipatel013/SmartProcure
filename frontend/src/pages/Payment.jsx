@@ -235,12 +235,12 @@ function Payment() {
               flexWrap: "wrap",
               background: "rgba(255, 255, 255, 0.02)"
             }}>
-              <div style={{ fontWeight: "700", color: "#ffffff", fontSize: "14px" }}>
+              <div style={{ fontWeight: "700", color: "var(--sp-card-bg)", fontSize: "14px" }}>
                 Settlement Records
               </div>
 
               <div style={{ position: "relative", minWidth: "280px" }}>
-                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "#64748b" }} />
+                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--sp-text-muted)" }} />
                 <input
                   type="text"
                   placeholder="Search TXN ID, item, supplier..."
@@ -288,17 +288,17 @@ function Payment() {
                             </span>
                           </td>
                           <td>
-                            <strong style={{ color: "#ffffff", display: "block" }}>{p.product?.name || "Product Item"}</strong>
+                            <strong style={{ color: "var(--sp-card-bg)", display: "block" }}>{p.product?.name || "Product Item"}</strong>
                             <span style={{ fontSize: "12px", color: "#94a3b8" }}>
                               By {p.product?.user?.username || "Employee"} (REQ-{p.product?.productId})
                             </span>
                           </td>
                           <td>
-                            <strong style={{ color: "#cbd5e1" }}>{p.supplier?.supplierName || "Supplier"}</strong>
+                            <strong style={{ color: "rgba(255,255,255,0.1)" }}>{p.supplier?.supplierName || "Supplier"}</strong>
                           </td>
                           <td>
                             <div style={{ fontSize: "13px" }}>
-                              <span style={{ color: "#ffffff", fontWeight: "600" }}>{p.account?.bankName || "Corporate Bank"}</span>
+                              <span style={{ color: "var(--sp-card-bg)", fontWeight: "600" }}>{p.account?.bankName || "Corporate Bank"}</span>
                               <div style={{ fontSize: "11px", color: "#94a3b8" }}>{p.account?.accountNumber || "****"}</div>
                             </div>
                           </td>
@@ -401,7 +401,7 @@ function Payment() {
               alignItems: "center",
               justifyContent: "space-between"
             }}>
-              <div style={{ fontWeight: "800", color: "#ffffff", fontSize: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
+              <div style={{ fontWeight: "800", color: "var(--sp-card-bg)", fontSize: "16px", display: "flex", alignItems: "center", gap: "8px" }}>
                 <CreditCard size={18} color="#38bdf8" /> Transaction Receipt
               </div>
               <button onClick={() => setSelectedPayment(null)} style={{ background: "none", border: "none", color: "#94a3b8", cursor: "pointer" }}>
@@ -421,7 +421,7 @@ function Payment() {
               }}>
                 <div>
                   <span style={{ fontSize: "11px", fontWeight: "700", color: "#34d399", textTransform: "uppercase" }}>Disbursed Amount</span>
-                  <div style={{ fontSize: "24px", fontWeight: "900", color: "#ffffff", marginTop: "2px" }}>
+                  <div style={{ fontSize: "24px", fontWeight: "900", color: "var(--sp-card-bg)", marginTop: "2px" }}>
                     ₹{selectedPayment.amount || selectedPayment.product?.totalPrice}
                   </div>
                 </div>
@@ -429,7 +429,7 @@ function Payment() {
                   padding: "6px 12px",
                   borderRadius: "20px",
                   background: "#10b981",
-                  color: "#ffffff",
+                  color: "var(--sp-card-bg)",
                   fontSize: "12px",
                   fontWeight: "800",
                   display: "flex",
@@ -447,31 +447,31 @@ function Payment() {
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Payment Mode</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.paymentMethod || "UPI"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.paymentMethod || "UPI"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Product Requisition</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.product?.name || "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.product?.name || "-"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Requester Employee</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.product?.user?.username || "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.product?.user?.username || "-"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Settlement Supplier</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.supplier?.supplierName || "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.supplier?.supplierName || "-"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Debit Account</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.account?.bankName || "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.account?.bankName || "-"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Account Number</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.account?.accountNumber || "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.account?.accountNumber || "-"}</strong>
                 </div>
                 <div>
                   <span style={{ color: "#94a3b8", display: "block" }}>Timestamp</span>
-                  <strong style={{ color: "#ffffff" }}>{selectedPayment.paymentDate ? new Date(selectedPayment.paymentDate).toLocaleString() : "-"}</strong>
+                  <strong style={{ color: "var(--sp-card-bg)" }}>{selectedPayment.paymentDate ? new Date(selectedPayment.paymentDate).toLocaleString() : "-"}</strong>
                 </div>
               </div>
 
@@ -496,7 +496,7 @@ function Payment() {
                   borderRadius: "8px",
                   background: "var(--sp-primary-gradient)",
                   border: "none",
-                  color: "#ffffff",
+                  color: "var(--sp-card-bg)",
                   fontWeight: "700",
                   cursor: "pointer",
                   marginTop: "6px"

@@ -332,15 +332,15 @@ function Register() {
                     width: "100%",
                     background: "transparent",
                     border: "none",
-                    color: "#0f172a",
+                    color: "var(--sp-text-main)",
                     fontWeight: "600",
                     outline: "none",
                     cursor: "pointer"
                   }}
                 >
-                  <option value="USER" style={{ color: "#0f172a", background: "#ffffff" }}>USER (Employee)</option>
-                  <option value="SUPPLIER" style={{ color: "#0f172a", background: "#ffffff" }}>SUPPLIER (Vendor Partner)</option>
-                  <option value="ADMIN" style={{ color: "#0f172a", background: "#ffffff" }}>ADMIN (Controller)</option>
+                  <option value="USER" style={{ color: "var(--sp-text-main)", background: "var(--sp-card-bg)" }}>USER (Employee)</option>
+                  <option value="SUPPLIER" style={{ color: "var(--sp-text-main)", background: "var(--sp-card-bg)" }}>SUPPLIER (Vendor Partner)</option>
+                  <option value="ADMIN" style={{ color: "var(--sp-text-main)", background: "var(--sp-card-bg)" }}>ADMIN (Controller)</option>
                 </select>
               </div>
             </div>

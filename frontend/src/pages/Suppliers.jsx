@@ -333,7 +333,7 @@ function Suppliers() {
               </div>
 
               <div style={{ position: "relative", minWidth: "280px" }}>
-                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "#64748b" }} />
+                <Search size={16} style={{ position: "absolute", left: "12px", top: "50%", transform: "translateY(-50%)", color: "var(--sp-text-muted)" }} />
                 <input
                   type="text"
                   placeholder="Search supplier name, email, phone..."
@@ -380,11 +380,11 @@ function Suppliers() {
                             </span>
                           </td>
                           <td>
-                            <strong style={{ color: "#ffffff", fontSize: "15px" }}>{s.supplierName}</strong>
+                            <strong style={{ color: "var(--sp-card-bg)", fontSize: "15px" }}>{s.supplierName}</strong>
                           </td>
                           <td>
                             <div style={{ display: "flex", flexDirection: "column", gap: "2px", fontSize: "12px" }}>
-                              <span style={{ color: "#cbd5e1", display: "flex", alignItems: "center", gap: "6px" }}>
+                              <span style={{ color: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", gap: "6px" }}>
                                 <Mail size={12} color="#38bdf8" /> {s.email || "-"}
                               </span>
                               <span style={{ color: "#94a3b8", display: "flex", alignItems: "center", gap: "6px" }}>
@@ -393,7 +393,7 @@ function Suppliers() {
                             </div>
                           </td>
                           <td>
-                            <span style={{ color: "#cbd5e1", fontSize: "13px", display: "flex", alignItems: "center", gap: "5px" }}>
+                            <span style={{ color: "rgba(255,255,255,0.1)", fontSize: "13px", display: "flex", alignItems: "center", gap: "5px" }}>
                               <MapPin size={13} color="#f59e0b" /> {s.address || "Headquarters"}
                             </span>
                           </td>
@@ -486,7 +486,7 @@ function Suppliers() {
                                   borderRadius: "6px",
                                   background: "rgba(255, 255, 255, 0.08)",
                                   border: "1px solid rgba(255, 255, 255, 0.1)",
-                                  color: "#cbd5e1",
+                                  color: "rgba(255,255,255,0.1)",
                                   cursor: "pointer"
                                 }}
                               >
@@ -563,7 +563,7 @@ function Suppliers() {
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <TrendingUp size={20} color="#34d399" />
-                  <span style={{ fontWeight: "900", color: "#ffffff", fontSize: "17px" }}>
+                  <span style={{ fontWeight: "900", color: "var(--sp-card-bg)", fontSize: "17px" }}>
                     Performance Analytics • {perfSupplier.supplierName}
                   </span>
                 </div>
@@ -595,9 +595,9 @@ function Suppliers() {
                     gap: "10px",
                     fontSize: "12px"
                   }}>
-                    <div><span style={{ color: "#94a3b8" }}>Email:</span> <strong style={{ color: "#ffffff" }}>{perfData.email || "-"}</strong></div>
-                    <div><span style={{ color: "#94a3b8" }}>Phone:</span> <strong style={{ color: "#ffffff" }}>{perfData.phone || "-"}</strong></div>
-                    <div><span style={{ color: "#94a3b8" }}>Address:</span> <span style={{ color: "#cbd5e1" }}>{perfData.address || "-"}</span></div>
+                    <div><span style={{ color: "#94a3b8" }}>Email:</span> <strong style={{ color: "var(--sp-card-bg)" }}>{perfData.email || "-"}</strong></div>
+                    <div><span style={{ color: "#94a3b8" }}>Phone:</span> <strong style={{ color: "var(--sp-card-bg)" }}>{perfData.phone || "-"}</strong></div>
+                    <div><span style={{ color: "#94a3b8" }}>Address:</span> <span style={{ color: "rgba(255,255,255,0.1)" }}>{perfData.address || "-"}</span></div>
                     <div>
                       <span style={{ color: "#94a3b8" }}>MPIN Status:</span>{" "}
                       <span style={{ color: perfData.mpinConfigured ? "#10b981" : "#f59e0b", fontWeight: "700" }}>
@@ -610,14 +610,14 @@ function Suppliers() {
                   <div style={{ display: "grid", gridTemplateColumns: "repeat(3, minmax(0, 1fr))", gap: "12px" }}>
                     <div style={{ background: "linear-gradient(180deg, #0c231b 0%, #06140f 100%)", border: "1px solid rgba(16, 185, 129, 0.3)", borderRadius: "12px", padding: "14px" }}>
                       <span style={{ fontSize: "11px", fontWeight: "700", color: "#34d399", textTransform: "uppercase" }}>Total Procurement</span>
-                      <div style={{ fontSize: "22px", fontWeight: "900", color: "#ffffff", marginTop: "4px" }}>
+                      <div style={{ fontSize: "22px", fontWeight: "900", color: "var(--sp-card-bg)", marginTop: "4px" }}>
                         ₹{perfData.totalProcurementValue.toLocaleString()}
                       </div>
                     </div>
 
                     <div style={{ background: "linear-gradient(180deg, #0d1e34 0%, #081424 100%)", border: "1px solid rgba(56, 189, 248, 0.3)", borderRadius: "12px", padding: "14px" }}>
                       <span style={{ fontSize: "11px", fontWeight: "700", color: "#38bdf8", textTransform: "uppercase" }}>Avg Order Value</span>
-                      <div style={{ fontSize: "22px", fontWeight: "900", color: "#ffffff", marginTop: "4px" }}>
+                      <div style={{ fontSize: "22px", fontWeight: "900", color: "var(--sp-card-bg)", marginTop: "4px" }}>
                         ₹{perfData.averageOrderValue.toLocaleString()}
                       </div>
                     </div>
@@ -638,10 +638,10 @@ function Suppliers() {
 
                     <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: "12px", fontSize: "12px" }}>
                       <div style={{ background: "rgba(255,255,255,0.03)", padding: "10px", borderRadius: "8px" }}>
-                        <span style={{ color: "#94a3b8" }}>Total Orders:</span> <strong style={{ color: "#ffffff", float: "right" }}>{perfData.totalOrders}</strong>
+                        <span style={{ color: "#94a3b8" }}>Total Orders:</span> <strong style={{ color: "var(--sp-card-bg)", float: "right" }}>{perfData.totalOrders}</strong>
                       </div>
                       <div style={{ background: "rgba(255,255,255,0.03)", padding: "10px", borderRadius: "8px" }}>
-                        <span style={{ color: "#94a3b8" }}>Total Quantity:</span> <strong style={{ color: "#ffffff", float: "right" }}>{perfData.totalQuantity} units</strong>
+                        <span style={{ color: "#94a3b8" }}>Total Quantity:</span> <strong style={{ color: "var(--sp-card-bg)", float: "right" }}>{perfData.totalQuantity} units</strong>
                       </div>
                       <div style={{ background: "rgba(255,255,255,0.03)", padding: "10px", borderRadius: "8px" }}>
                         <span style={{ color: "#94a3b8" }}>Delivered:</span> <strong style={{ color: "#34d399", float: "right" }}>{perfData.deliveredOrders}</strong>
@@ -668,7 +668,7 @@ function Suppliers() {
                   borderRadius: "10px",
                   background: "var(--sp-primary-gradient)",
                   border: "none",
-                  color: "#ffffff",
+                  color: "var(--sp-card-bg)",
                   fontWeight: "800",
                   cursor: "pointer"
                 }}
@@ -716,7 +716,7 @@ function Suppliers() {
               <div>
                 <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
                   <Package size={20} color="#38bdf8" />
-                  <span style={{ fontWeight: "900", color: "#ffffff", fontSize: "17px" }}>
+                  <span style={{ fontWeight: "900", color: "var(--sp-card-bg)", fontSize: "17px" }}>
                     Assigned Purchase Orders • {ordersSupplier.supplierName}
                   </span>
                 </div>
@@ -756,7 +756,7 @@ function Suppliers() {
                     cursor: "pointer",
                     border: orderFilter === tab.key ? "none" : "1px solid rgba(255,255,255,0.1)",
                     background: orderFilter === tab.key ? "var(--sp-primary-gradient)" : "transparent",
-                    color: "#ffffff"
+                    color: "var(--sp-card-bg)"
                   }}
                 >
                   {tab.label}
@@ -793,7 +793,7 @@ function Suppliers() {
                           </span>
                           <span style={{ fontSize: "11px", color: "#94a3b8" }}>• REQ-{o.product?.productId}</span>
                         </div>
-                        <strong style={{ color: "#ffffff", display: "block", marginTop: "2px" }}>{o.productName}</strong>
+                        <strong style={{ color: "var(--sp-card-bg)", display: "block", marginTop: "2px" }}>{o.productName}</strong>
                         <span style={{ fontSize: "11px", color: "#94a3b8" }}>
                           Qty: {o.quantity} • By {o.user?.username || "Employee"} ({o.department?.departmentName || "Dept"})
                         </span>
@@ -819,7 +819,7 @@ function Suppliers() {
                 </div>
               ) : (
                 <div style={{ textAlign: "center", padding: "40px 20px", color: "#94a3b8" }}>
-                  <Package size={36} style={{ margin: "0 auto 10px", color: "#475569" }} />
+                  <Package size={36} style={{ margin: "0 auto 10px", color: "var(--sp-text-sub)" }} />
                   <p style={{ margin: 0 }}>No orders found matching this filter.</p>
                 </div>
               )}
@@ -832,7 +832,7 @@ function Suppliers() {
                   borderRadius: "10px",
                   background: "var(--sp-primary-gradient)",
                   border: "none",
-                  color: "#ffffff",
+                  color: "var(--sp-card-bg)",
                   fontWeight: "800",
                   cursor: "pointer",
                   marginTop: "6px"
@@ -875,7 +875,7 @@ function Suppliers() {
               alignItems: "center",
               justifyContent: "space-between"
             }}>
-              <div style={{ fontWeight: "800", color: "#ffffff", fontSize: "16px" }}>
+              <div style={{ fontWeight: "800", color: "var(--sp-card-bg)", fontSize: "16px" }}>
                 {editingSupplier ? "Edit Supplier Details" : "Register New Supplier Partner"}
               </div>
               <button onClick={() => setShowAddModal(false)} style={{ background: "none", border: "none", color: "#94a3b8", cursor: "pointer" }}>
@@ -953,7 +953,7 @@ function Suppliers() {
                     borderRadius: "8px",
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid var(--sp-border)",
-                    color: "#cbd5e1",
+                    color: "rgba(255,255,255,0.1)",
                     fontWeight: "600",
                     cursor: "pointer"
                   }}
@@ -968,7 +968,7 @@ function Suppliers() {
                     borderRadius: "8px",
                     background: "var(--sp-primary-gradient)",
                     border: "none",
-                    color: "#ffffff",
+                    color: "var(--sp-card-bg)",
                     fontWeight: "800",
                     cursor: "pointer",
                     boxShadow: "0 4px 15px var(--sp-primary-glow)"
@@ -1022,7 +1022,7 @@ function Suppliers() {
 
             <form onSubmit={handleUpdateStatus} style={{ padding: "24px", display: "flex", flexDirection: "column", gap: "16px" }}>
               <div style={{ background: "rgba(255,255,255,0.04)", padding: "12px 16px", borderRadius: "10px" }}>
-                <strong style={{ color: "#ffffff", display: "block" }}>{statusSupplier.supplierName}</strong>
+                <strong style={{ color: "var(--sp-card-bg)", display: "block" }}>{statusSupplier.supplierName}</strong>
                 <span style={{ fontSize: "12px", color: "#94a3b8" }}>SUP-{statusSupplier.supplierId}</span>
               </div>
 
@@ -1052,7 +1052,7 @@ function Suppliers() {
                     borderRadius: "8px",
                     background: "rgba(255,255,255,0.06)",
                     border: "1px solid var(--sp-border)",
-                    color: "#cbd5e1",
+                    color: "rgba(255,255,255,0.1)",
                     fontWeight: "600",
                     cursor: "pointer"
                   }}
@@ -1067,7 +1067,7 @@ function Suppliers() {
                     borderRadius: "8px",
                     background: "var(--sp-purple-gradient)",
                     border: "none",
-                    color: "#ffffff",
+                    color: "var(--sp-card-bg)",
                     fontWeight: "800",
                     cursor: "pointer",
                     boxShadow: "0 4px 15px var(--sp-purple-glow)"

@@ -252,7 +252,7 @@ function Dashboard() {
                 <strong>{getUserName()}</strong>
                 <span>{user?.role || "USER"}</span>
               </div>
-              <ChevronDown size={14} color="#64748b" />
+              <ChevronDown size={14} color="var(--sp-text-muted)" />
             </div>
           </div>
         </header>
@@ -363,7 +363,7 @@ function Dashboard() {
           <div style={{ display: "grid", gridTemplateColumns: "1fr 1.5fr", gap: "20px" }}>
             {/* Status Breakdown Panel */}
             <div className="dashboard-panel" style={{ padding: "20px" }}>
-              <h2 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", marginBottom: "16px" }}>Requisition Status Overview</h2>
+              <h2 style={{ fontSize: "16px", fontWeight: "800", color: "var(--sp-text-main)", marginBottom: "16px" }}>Requisition Status Overview</h2>
               <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "16px" }}>
                 <div
                   style={{
@@ -384,27 +384,27 @@ function Dashboard() {
                     width: "110px",
                     height: "110px",
                     borderRadius: "50%",
-                    background: "#ffffff",
+                    background: "var(--sp-card-bg)",
                     display: "flex",
                     flexDirection: "column",
                     alignItems: "center",
                     justifyContent: "center"
                   }}>
-                    <strong style={{ fontSize: "20px", color: "#0f172a" }}>{stats.total}</strong>
-                    <span style={{ fontSize: "11px", color: "#64748b" }}>Total Requests</span>
+                    <strong style={{ fontSize: "20px", color: "var(--sp-text-main)" }}>{stats.total}</strong>
+                    <span style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>Total Requests</span>
                   </div>
                 </div>
 
                 <div style={{ display: "flex", flexDirection: "column", gap: "8px", width: "100%" }}>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#334155" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "var(--sp-text-main)" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#f59e0b" }} /> Pending</span>
                     <strong>{stats.pending} ({pendingPct}%)</strong>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#334155" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "var(--sp-text-main)" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#10b981" }} /> Approved / Placed</span>
                     <strong>{stats.approved} ({approvedPct}%)</strong>
                   </div>
-                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "#334155" }}>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontSize: "12px", color: "var(--sp-text-main)" }}>
                     <span style={{ display: "flex", alignItems: "center", gap: "6px" }}><span style={{ width: "8px", height: "8px", borderRadius: "50%", background: "#ef4444" }} /> Rejected</span>
                     <strong>{stats.rejected} ({rejectedPct}%)</strong>
                   </div>
@@ -415,7 +415,7 @@ function Dashboard() {
             {/* Recent Requests List */}
             <div className="dashboard-panel" style={{ padding: "20px" }}>
               <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "16px" }}>
-                <h2 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", margin: 0 }}>My Recent Requisitions</h2>
+                <h2 style={{ fontSize: "16px", fontWeight: "800", color: "var(--sp-text-main)", margin: 0 }}>My Recent Requisitions</h2>
                 <Link to="/employee/my-requests" style={{ fontSize: "13px", fontWeight: "700", color: "#0284c7" }}>View All →</Link>
               </div>
 
@@ -429,14 +429,14 @@ function Dashboard() {
                         alignItems: "center",
                         justifyContent: "space-between",
                         padding: "12px 14px",
-                        background: "#f8fafc",
+                        background: "var(--sp-card-surface)",
                         borderRadius: "10px",
                         border: "1px solid #e2e8f0"
                       }}
                     >
                       <div>
-                        <strong style={{ color: "#0f172a", fontSize: "14px", display: "block" }}>{r.title}</strong>
-                        <span style={{ fontSize: "12px", color: "#64748b" }}>{r.id} • {r.category} • {r.time}</span>
+                        <strong style={{ color: "var(--sp-text-main)", fontSize: "14px", display: "block" }}>{r.title}</strong>
+                        <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>{r.id} • {r.category} • {r.time}</span>
                       </div>
                       <div style={{ textAlign: "right" }}>
                         <div style={{ fontWeight: "800", color: "#15803d", fontSize: "14px" }}>₹{r.amount}</div>
@@ -445,8 +445,8 @@ function Dashboard() {
                           fontWeight: "700",
                           padding: "2px 8px",
                           borderRadius: "12px",
-                          background: r.rawStatus === "APPROVED" || r.rawStatus === "ORDER_PLACED" ? "#dcfce7" : r.rawStatus === "REJECTED" ? "#fee2e2" : "#fef3c7",
-                          color: r.rawStatus === "APPROVED" || r.rawStatus === "ORDER_PLACED" ? "#15803d" : r.rawStatus === "REJECTED" ? "#b91c1c" : "#b45309"
+                          background: r.rawStatus === "APPROVED" || r.rawStatus === "ORDER_PLACED" ? "#dcfce7" : r.rawStatus === "REJECTED" ? "rgba(239, 68, 68, 0.1)" : "rgba(245, 158, 11, 0.1)",
+                          color: r.rawStatus === "APPROVED" || r.rawStatus === "ORDER_PLACED" ? "#15803d" : r.rawStatus === "REJECTED" ? "#b91c1c" : "#f59e0b"
                         }}>
                           {r.status}
                         </span>
@@ -455,7 +455,7 @@ function Dashboard() {
                   ))}
                 </div>
               ) : (
-                <div style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
+                <div style={{ textAlign: "center", padding: "40px", color: "var(--sp-text-muted)" }}>
                   No recent requisitions. Click "Raise New Request" to get started.
                 </div>
               )}

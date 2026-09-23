@@ -242,7 +242,7 @@ function SupplierDashboard() {
       case "PROCESSING":
         return <span className="admin-badge pending">● Packed</span>;
       case "SHIPPED":
-        return <span className="admin-badge" style={{ background: "#e0f2fe", color: "#0369a1" }}>✈ Shipped</span>;
+        return <span className="admin-badge" style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9" }}>✈ Shipped</span>;
       case "OUT_FOR_DELIVERY":
         return <span className="admin-badge" style={{ background: "#ede9fe", color: "#6d28d9" }}>🚚 Out for Delivery</span>;
       case "RECEIVED":
@@ -272,10 +272,10 @@ function SupplierDashboard() {
   };
 
   return (
-    <div style={{ background: "#f8fafc", minHeight: "100vh", color: "#0f172a", fontFamily: "'Inter', -apple-system, sans-serif" }}>
+    <div style={{ background: "var(--sp-card-surface)", minHeight: "100vh", color: "var(--sp-text-main)", fontFamily: "'Inter', -apple-system, sans-serif" }}>
       {/* Top Navigation Bar */}
       <header style={{
-        background: "#ffffff",
+        background: "var(--sp-card-bg)",
         borderBottom: "1px solid #e2e8f0",
         padding: "16px 32px",
         display: "flex",
@@ -288,12 +288,12 @@ function SupplierDashboard() {
       }}>
         <div style={{ display: "flex", alignItems: "center", gap: "16px" }}>
           <div style={{ display: "flex", alignItems: "center", gap: "10px" }}>
-            <div style={{ background: "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)", padding: "8px", borderRadius: "10px", color: "#ffffff", display: "flex" }}>
-              <ShoppingCart size={22} color="#ffffff" />
+            <div style={{ background: "linear-gradient(135deg, #0284c7 0%, #0369a1 100%)", padding: "8px", borderRadius: "10px", color: "var(--sp-card-bg)", display: "flex" }}>
+              <ShoppingCart size={22} color="var(--sp-card-bg)" />
             </div>
             <div style={{ fontSize: "18px", fontWeight: "800" }}>
-              <span style={{ color: "#0f172a" }}>Smart</span><strong style={{ color: "#0284c7" }}>Procure</strong>
-              <span style={{ fontSize: "12px", background: "#e0f2fe", color: "#0369a1", padding: "3px 8px", borderRadius: "6px", marginLeft: "10px", fontWeight: "700" }}>
+              <span style={{ color: "var(--sp-text-main)" }}>Smart</span><strong style={{ color: "#0284c7" }}>Procure</strong>
+              <span style={{ fontSize: "12px", background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9", padding: "3px 8px", borderRadius: "6px", marginLeft: "10px", fontWeight: "700" }}>
                 Supplier Portal
               </span>
             </div>
@@ -304,8 +304,8 @@ function SupplierDashboard() {
           {/* Notification Bell */}
           <NotificationBell currentUser={user} />
 
-          <div style={{ fontSize: "13px", color: "#64748b" }}>
-            Supplier Partner: <strong style={{ color: "#0f172a" }}>{supplierProfile?.supplierName || user?.username || "Supplier"}</strong>
+          <div style={{ fontSize: "13px", color: "var(--sp-text-muted)" }}>
+            Supplier Partner: <strong style={{ color: "var(--sp-text-main)" }}>{supplierProfile?.supplierName || user?.username || "Supplier"}</strong>
           </div>
 
           <button
@@ -315,10 +315,10 @@ function SupplierDashboard() {
               alignItems: "center",
               gap: "6px",
               padding: "8px 14px",
-              background: "#e0f2fe",
+              background: "rgba(14, 165, 233, 0.1)",
               border: "1px solid #bae6fd",
               borderRadius: "8px",
-              color: "#0369a1",
+              color: "#0ea5e9",
               fontSize: "13px",
               fontWeight: "700",
               cursor: "pointer"
@@ -335,7 +335,7 @@ function SupplierDashboard() {
               alignItems: "center",
               gap: "6px",
               padding: "8px 14px",
-              background: "#fee2e2",
+              background: "rgba(239, 68, 68, 0.1)",
               border: "1px solid #fecaca",
               borderRadius: "8px",
               color: "#b91c1c",
@@ -355,11 +355,11 @@ function SupplierDashboard() {
         {/* Main Heading */}
         <div style={{ marginBottom: "24px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: "16px" }}>
           <div>
-            <h1 style={{ fontSize: "26px", fontWeight: "800", margin: "0 0 6px", color: "#0f172a", display: "flex", alignItems: "center", gap: "10px" }}>
+            <h1 style={{ fontSize: "26px", fontWeight: "800", margin: "0 0 6px", color: "var(--sp-text-main)", display: "flex", alignItems: "center", gap: "10px" }}>
               <span>Supplier Dashboard</span>
               <span style={{ fontSize: "16px", color: "#0284c7", fontWeight: "600" }}>• Welcome, {supplierProfile?.supplierName || "Partner"}</span>
             </h1>
-            <p style={{ margin: 0, color: "#64748b", fontSize: "14px" }}>
+            <p style={{ margin: 0, color: "var(--sp-text-muted)", fontSize: "14px" }}>
               Manage your assigned purchase orders and update delivery fulfillment milestones in real-time.
             </p>
           </div>
@@ -371,10 +371,10 @@ function SupplierDashboard() {
               alignItems: "center",
               gap: "8px",
               padding: "9px 16px",
-              background: "#ffffff",
+              background: "var(--sp-card-bg)",
               border: "1px solid #cbd5e1",
               borderRadius: "8px",
-              color: "#334155",
+              color: "var(--sp-text-main)",
               fontSize: "13px",
               fontWeight: "600",
               cursor: "pointer"
@@ -445,7 +445,7 @@ function SupplierDashboard() {
         {/* Supplier Performance Analytics Card */}
         {performance && (
           <div style={{
-            background: "#ffffff",
+            background: "var(--sp-card-bg)",
             border: "1px solid #e2e8f0",
             borderRadius: "14px",
             padding: "20px 24px",
@@ -457,29 +457,29 @@ function SupplierDashboard() {
                 <BarChart3 size={18} />
                 <span>Supplier Performance & Execution Metrics</span>
               </div>
-              <div style={{ fontSize: "12px", color: "#64748b" }}>
+              <div style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>
                 Fulfillment Success Rate: <strong style={{ color: "#15803d" }}>{performance.deliverySuccessRate}%</strong>
               </div>
             </div>
 
             <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(180px, 1fr))", gap: "14px", fontSize: "13px" }}>
-              <div style={{ background: "#f8fafc", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Total Procurement Value</div>
+              <div style={{ background: "var(--sp-card-surface)", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ color: "var(--sp-text-muted)", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Total Procurement Value</div>
                 <div style={{ fontSize: "18px", fontWeight: "900", color: "#0284c7", marginTop: "4px" }}>₹{performance.totalProcurementValue?.toLocaleString()}</div>
               </div>
 
-              <div style={{ background: "#f8fafc", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Average Order Value</div>
-                <div style={{ fontSize: "18px", fontWeight: "900", color: "#0f172a", marginTop: "4px" }}>₹{performance.averageOrderValue?.toLocaleString()}</div>
+              <div style={{ background: "var(--sp-card-surface)", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ color: "var(--sp-text-muted)", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Average Order Value</div>
+                <div style={{ fontSize: "18px", fontWeight: "900", color: "var(--sp-text-main)", marginTop: "4px" }}>₹{performance.averageOrderValue?.toLocaleString()}</div>
               </div>
 
-              <div style={{ background: "#f8fafc", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Total Units Supplied</div>
+              <div style={{ background: "var(--sp-card-surface)", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ color: "var(--sp-text-muted)", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>Total Units Supplied</div>
                 <div style={{ fontSize: "18px", fontWeight: "900", color: "#7c3aed", marginTop: "4px" }}>{performance.totalQuantity} units</div>
               </div>
 
-              <div style={{ background: "#f8fafc", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div style={{ color: "#64748b", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>In Transit / Dispatch</div>
+              <div style={{ background: "var(--sp-card-surface)", padding: "12px 16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div style={{ color: "var(--sp-text-muted)", fontSize: "11px", textTransform: "uppercase", fontWeight: "700" }}>In Transit / Dispatch</div>
                 <div style={{ fontSize: "18px", fontWeight: "900", color: "#d97706", marginTop: "4px" }}>
                   {(performance.processingOrders || 0) + (performance.shippedOrders || 0) + (performance.outForDeliveryOrders || 0)} orders
                 </div>
@@ -512,7 +512,7 @@ function SupplierDashboard() {
             </div>
 
             <div className="admin-search-wrapper">
-              <Search size={16} color="#64748b" />
+              <Search size={16} color="var(--sp-text-muted)" />
               <input
                 type="text"
                 placeholder="Search Order ID, product, requester..."
@@ -524,15 +524,15 @@ function SupplierDashboard() {
 
           <div className="admin-table-responsive">
             {loading ? (
-              <div style={{ textAlign: "center", padding: "60px", color: "#64748b" }}>
+              <div style={{ textAlign: "center", padding: "60px", color: "var(--sp-text-muted)" }}>
                 <RefreshCw className="animate-spin" size={24} style={{ margin: "0 auto 10px", color: "#0284c7" }} />
                 <div>Loading orders...</div>
               </div>
             ) : orders.length === 0 ? (
-              <div style={{ textAlign: "center", padding: "60px 20px", color: "#64748b" }}>
+              <div style={{ textAlign: "center", padding: "60px 20px", color: "var(--sp-text-muted)" }}>
                 <Package size={36} style={{ margin: "0 auto 12px", color: "#94a3b8" }} />
-                <div style={{ fontSize: "16px", fontWeight: "700", color: "#0f172a" }}>No orders found</div>
-                <p style={{ fontSize: "13px", color: "#64748b", marginTop: "4px" }}>
+                <div style={{ fontSize: "16px", fontWeight: "700", color: "var(--sp-text-main)" }}>No orders found</div>
+                <p style={{ fontSize: "13px", color: "var(--sp-text-muted)", marginTop: "4px" }}>
                   No procurement purchase orders assigned matching your current filter.
                 </p>
               </div>
@@ -560,12 +560,12 @@ function SupplierDashboard() {
                         </span>
                       </td>
                       <td>
-                        <div style={{ fontWeight: "700", color: "#0f172a" }}>{o.productName}</div>
-                        <div style={{ fontSize: "11px", color: "#64748b" }}>{o.category?.categoryName || "General"}</div>
+                        <div style={{ fontWeight: "700", color: "var(--sp-text-main)" }}>{o.productName}</div>
+                        <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{o.category?.categoryName || "General"}</div>
                       </td>
                       <td>
-                        <div style={{ fontWeight: "600", color: "#0f172a" }}>{o.user?.username || "Employee"}</div>
-                        <div style={{ fontSize: "11px", color: "#64748b" }}>{o.user?.email}</div>
+                        <div style={{ fontWeight: "600", color: "var(--sp-text-main)" }}>{o.user?.username || "Employee"}</div>
+                        <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{o.user?.email}</div>
                       </td>
                       <td>
                         <span className="admin-dept-tag">
@@ -620,7 +620,7 @@ function SupplierDashboard() {
             flexWrap: "wrap",
             gap: "14px",
             fontSize: "13px",
-            color: "#64748b",
+            color: "var(--sp-text-muted)",
             background: "#fafafa"
           }}>
             <div>
@@ -635,8 +635,8 @@ function SupplierDashboard() {
                   value={limit}
                   onChange={handleLimitChange}
                   style={{
-                    background: "#ffffff",
-                    color: "#0f172a",
+                    background: "var(--sp-card-bg)",
+                    color: "var(--sp-text-main)",
                     border: "1px solid #cbd5e1",
                     borderRadius: "6px",
                     padding: "4px 8px",
@@ -655,10 +655,10 @@ function SupplierDashboard() {
                   disabled={!pagination.hasPreviousPage}
                   style={{
                     padding: "6px 12px",
-                    background: pagination.hasPreviousPage ? "#ffffff" : "#f1f5f9",
+                    background: pagination.hasPreviousPage ? "var(--sp-card-bg)" : "var(--sp-card-surface)",
                     border: "1px solid #cbd5e1",
                     borderRadius: "6px",
-                    color: pagination.hasPreviousPage ? "#0f172a" : "#94a3b8",
+                    color: pagination.hasPreviousPage ? "var(--sp-text-main)" : "#94a3b8",
                     cursor: pagination.hasPreviousPage ? "pointer" : "not-allowed"
                   }}
                 >
@@ -668,7 +668,7 @@ function SupplierDashboard() {
                 <span style={{
                   padding: "6px 12px",
                   borderRadius: "6px",
-                  background: "#e0f2fe",
+                  background: "rgba(14, 165, 233, 0.1)",
                   border: "1px solid #bae6fd",
                   color: "#0284c7",
                   fontSize: "12px",
@@ -682,10 +682,10 @@ function SupplierDashboard() {
                   disabled={!pagination.hasNextPage}
                   style={{
                     padding: "6px 12px",
-                    background: pagination.hasNextPage ? "#ffffff" : "#f1f5f9",
+                    background: pagination.hasNextPage ? "var(--sp-card-bg)" : "var(--sp-card-surface)",
                     border: "1px solid #cbd5e1",
                     borderRadius: "6px",
-                    color: pagination.hasNextPage ? "#0f172a" : "#94a3b8",
+                    color: pagination.hasNextPage ? "var(--sp-text-main)" : "#94a3b8",
                     cursor: pagination.hasNextPage ? "pointer" : "not-allowed"
                   }}
                 >
@@ -745,7 +745,7 @@ function SupplierDashboard() {
               </div>
 
               {/* 4. Sequential Tracking Timeline */}
-              <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+              <div style={{ background: "var(--sp-card-surface)", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
                 <h4 style={{ margin: "0 0 14px", fontSize: "11px", color: "#0284c7", textTransform: "uppercase", letterSpacing: "1px" }}>
                   5-Stage Milestone Progression
                 </h4>
@@ -758,14 +758,14 @@ function SupplierDashboard() {
                           width: "28px",
                           height: "28px",
                           borderRadius: "50%",
-                          background: state === "completed" ? "#10b981" : state === "current" ? "#0284c7" : "#e2e8f0",
-                          border: `2px solid ${state === "completed" ? "#34d399" : state === "current" ? "#38bdf8" : "#cbd5e1"}`,
+                          background: state === "completed" ? "#10b981" : state === "current" ? "#0284c7" : "rgba(255,255,255,0.05)",
+                          border: `2px solid ${state === "completed" ? "#34d399" : state === "current" ? "#38bdf8" : "rgba(255,255,255,0.1)"}`,
                           display: "flex",
                           alignItems: "center",
                           justifyContent: "center",
                           fontSize: "12px",
                           fontWeight: "700",
-                          color: state === "upcoming" ? "#64748b" : "#ffffff"
+                          color: state === "upcoming" ? "var(--sp-text-muted)" : "var(--sp-card-bg)"
                         }}>
                           {state === "completed" ? "✓" : idx + 1}
                         </div>
@@ -805,10 +805,10 @@ function SupplierDashboard() {
             <form onSubmit={handleUpdateStatus}>
               <div className="admin-modal-body">
                 <div>
-                  <label style={{ display: "block", fontSize: "12px", color: "#64748b", marginBottom: "4px", fontWeight: "700" }}>
+                  <label style={{ display: "block", fontSize: "12px", color: "var(--sp-text-muted)", marginBottom: "4px", fontWeight: "700" }}>
                     Current Status
                   </label>
-                  <div style={{ padding: "10px 14px", background: "#f8fafc", border: "1px solid #e2e8f0", borderRadius: "8px", fontSize: "14px", fontWeight: "700", color: "#0284c7" }}>
+                  <div style={{ padding: "10px 14px", background: "var(--sp-card-surface)", border: "1px solid #e2e8f0", borderRadius: "8px", fontSize: "14px", fontWeight: "700", color: "#0284c7" }}>
                     {statusModalOrder.status}
                   </div>
                 </div>
@@ -866,7 +866,7 @@ function SupplierDashboard() {
                 <X size={18} />
               </button>
             </div>
-            <div className="admin-modal-body" style={{ color: "#475569", fontSize: "14px" }}>
+            <div className="admin-modal-body" style={{ color: "var(--sp-text-sub)", fontSize: "14px" }}>
               <p>
                 Products added to your organization's catalog are synchronized with the enterprise procurement database.
               </p>

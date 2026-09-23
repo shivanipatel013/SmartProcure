@@ -416,7 +416,7 @@ function AdminDashboard() {
       { name: "Rejected", value: stats.rejectedRequests, color: "#ef4444" },
     ].filter(i => i.value > 0);
 
-    return data.length > 0 ? data : [{ name: "No Activity", value: 1, color: "#cbd5e1" }];
+    return data.length > 0 ? data : [{ name: "No Activity", value: 1, color: "rgba(255,255,255,0.1)" }];
   }, [stats]);
 
   const getStatusBadge = (status) => {
@@ -430,9 +430,9 @@ function AdminDashboard() {
       case "PACKED":
         return <span className="admin-badge pending"><span className="admin-badge-dot" /> Packed</span>;
       case "SHIPPED":
-        return <span className="admin-badge" style={{ background: "#e0f2fe", color: "#0369a1" }}>✈ Shipped</span>;
+        return <span className="admin-badge" style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9", border: "1px solid rgba(14,165,233,0.3)", boxShadow: "0 0 10px rgba(14, 165, 233, 0.2)" }}>✈ Shipped</span>;
       case "OUT_FOR_DELIVERY":
-        return <span className="admin-badge" style={{ background: "#fef3c7", color: "#b45309" }}>🚚 Out for Delivery</span>;
+        return <span className="admin-badge" style={{ background: "rgba(245, 158, 11, 0.1)", color: "#f59e0b", border: "1px solid rgba(245,158,11,0.3)", boxShadow: "0 0 10px rgba(245, 158, 11, 0.2)" }}>🚚 Out for Delivery</span>;
       case "RECEIVED":
       case "DELIVERED":
         return <span className="admin-badge" style={{ background: "#dcfce7", color: "#15803d" }}>✓ Received</span>;
@@ -652,28 +652,28 @@ function AdminDashboard() {
             <div style={{ display: "grid", gridTemplateColumns: "1.2fr 0.8fr", gap: "20px", marginTop: "24px" }}>
               {/* Quick Pipeline Navigation */}
               <div className="admin-panel" style={{ padding: "24px" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", margin: "0 0 16px" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "var(--sp-text-main)", margin: "0 0 16px" }}>
                   Active Operational Modules
                 </h3>
 
                 <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px" }}>
                   <div
                     onClick={() => setActiveNav("REQUESTS")}
-                    style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
+                    style={{ background: "var(--sp-card-surface)", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                       <FileText size={20} color="#0284c7" />
-                      <span style={{ fontSize: "11px", fontWeight: "700", background: "#e0f2fe", color: "#0284c7", padding: "2px 8px", borderRadius: "6px" }}>
+                      <span style={{ fontSize: "11px", fontWeight: "700", background: "rgba(14, 165, 233, 0.1)", color: "#0284c7", padding: "2px 8px", borderRadius: "6px" }}>
                         {stats.pendingRequests} Pending
                       </span>
                     </div>
-                    <strong style={{ display: "block", fontSize: "14px", color: "#0f172a" }}>Requisition Approval</strong>
-                    <span style={{ fontSize: "12px", color: "#64748b" }}>Approve, reject, & inspect requisitions</span>
+                    <strong style={{ display: "block", fontSize: "14px", color: "var(--sp-text-main)" }}>Requisition Approval</strong>
+                    <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>Approve, reject, & inspect requisitions</span>
                   </div>
 
                   <div
                     onClick={() => setActiveNav("ORDERS")}
-                    style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
+                    style={{ background: "var(--sp-card-surface)", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                       <Truck size={20} color="#10b981" />
@@ -681,13 +681,13 @@ function AdminDashboard() {
                         {stats.ordersInProgress} Active
                       </span>
                     </div>
-                    <strong style={{ display: "block", fontSize: "14px", color: "#0f172a" }}>Order Fulfillment</strong>
-                    <span style={{ fontSize: "12px", color: "#64748b" }}>Track 5-stage delivery pipeline</span>
+                    <strong style={{ display: "block", fontSize: "14px", color: "var(--sp-text-main)" }}>Order Fulfillment</strong>
+                    <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>Track 5-stage delivery pipeline</span>
                   </div>
 
                   <div
                     onClick={() => setActiveNav("SUPPLIERS")}
-                    style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
+                    style={{ background: "var(--sp-card-surface)", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                       <Building2 size={20} color="#8b5cf6" />
@@ -695,29 +695,29 @@ function AdminDashboard() {
                         {suppliers.length} Partners
                       </span>
                     </div>
-                    <strong style={{ display: "block", fontSize: "14px", color: "#0f172a" }}>Supplier Performance</strong>
-                    <span style={{ fontSize: "12px", color: "#64748b" }}>Partner metrics & order values</span>
+                    <strong style={{ display: "block", fontSize: "14px", color: "var(--sp-text-main)" }}>Supplier Performance</strong>
+                    <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>Partner metrics & order values</span>
                   </div>
 
                   <div
                     onClick={() => setActiveNav("PAYMENTS")}
-                    style={{ background: "#f8fafc", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
+                    style={{ background: "var(--sp-card-surface)", border: "1px solid #e2e8f0", padding: "16px", borderRadius: "12px", cursor: "pointer", transition: "all 0.2s" }}
                   >
                     <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: "8px" }}>
                       <CreditCard size={20} color="#0284c7" />
-                      <span style={{ fontSize: "11px", fontWeight: "700", background: "#e0f2fe", color: "#0369a1", padding: "2px 8px", borderRadius: "6px" }}>
+                      <span style={{ fontSize: "11px", fontWeight: "700", background: "rgba(14, 165, 233, 0.1)", color: "#0ea5e9", padding: "2px 8px", borderRadius: "6px" }}>
                         ₹{stats.totalDisbursedAmount.toLocaleString()}
                       </span>
                     </div>
-                    <strong style={{ display: "block", fontSize: "14px", color: "#0f172a" }}>Payment History & CSB</strong>
-                    <span style={{ fontSize: "12px", color: "#64748b" }}>Disbursement ledger & audits</span>
+                    <strong style={{ display: "block", fontSize: "14px", color: "var(--sp-text-main)" }}>Payment History & CSB</strong>
+                    <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>Disbursement ledger & audits</span>
                   </div>
                 </div>
               </div>
 
               {/* Status Distribution Donut Chart */}
               <div className="admin-panel" style={{ padding: "24px", display: "flex", flexDirection: "column", alignItems: "center" }}>
-                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "#0f172a", margin: "0 0 16px", width: "100%" }}>
+                <h3 style={{ fontSize: "16px", fontWeight: "800", color: "var(--sp-text-main)", margin: "0 0 16px", width: "100%" }}>
                   Requisition Distribution
                 </h3>
 
@@ -745,7 +745,7 @@ function AdminDashboard() {
 
                 <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "10px", marginTop: "10px" }}>
                   {chartData.map((item, idx) => (
-                    <div key={idx} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "#64748b" }}>
+                    <div key={idx} style={{ display: "flex", alignItems: "center", gap: "6px", fontSize: "11px", color: "var(--sp-text-muted)" }}>
                       <span style={{ width: "8px", height: "8px", borderRadius: "50%", background: item.color }} />
                       <span>{item.name}: <b>{item.value}</b></span>
                     </div>
@@ -792,7 +792,7 @@ function AdminDashboard() {
                       onChange={(e) => setSearchQuery(e.target.value)}
                     />
                     {searchQuery && (
-                      <button onClick={() => setSearchQuery("")} style={{ background: "none", border: "none", color: "#64748b", cursor: "pointer" }}>
+                      <button onClick={() => setSearchQuery("")} style={{ background: "none", border: "none", color: "var(--sp-text-muted)", cursor: "pointer" }}>
                         <X size={14} />
                       </button>
                     )}
@@ -809,8 +809,8 @@ function AdminDashboard() {
                         padding: "6px 12px",
                         borderRadius: "8px",
                         border: activeTab === st ? "1px solid #0284c7" : "1px solid #e2e8f0",
-                        background: activeTab === st ? "#e0f2fe" : "#ffffff",
-                        color: activeTab === st ? "#0284c7" : "#64748b",
+                        background: activeTab === st ? "rgba(14, 165, 233, 0.1)" : "var(--sp-card-bg)",
+                        color: activeTab === st ? "#0284c7" : "var(--sp-text-muted)",
                         fontSize: "12px",
                         fontWeight: activeTab === st ? "800" : "600",
                         cursor: "pointer",
@@ -857,15 +857,15 @@ function AdminDashboard() {
                             </span>
                           </td>
                           <td>
-                            <strong style={{ color: "#0f172a" }}>{r.name}</strong>
-                            <div style={{ fontSize: "11px", color: "#64748b" }}>{r.category?.categoryName || "General"}</div>
+                            <strong style={{ color: "var(--sp-text-main)" }}>{r.name}</strong>
+                            <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{r.category?.categoryName || "General"}</div>
                           </td>
                           <td>
-                            <strong style={{ color: "#334155" }}>{r.user?.username || "Employee"}</strong>
-                            <div style={{ fontSize: "11px", color: "#64748b" }}>{r.user?.email || ""}</div>
+                            <strong style={{ color: "var(--sp-text-main)" }}>{r.user?.username || "Employee"}</strong>
+                            <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{r.user?.email || ""}</div>
                           </td>
                           <td>
-                            <span style={{ fontSize: "12px", color: "#334155", background: "#f1f5f9", padding: "3px 8px", borderRadius: "6px" }}>
+                            <span style={{ fontSize: "12px", color: "var(--sp-text-main)", background: "var(--sp-card-surface)", padding: "3px 8px", borderRadius: "6px" }}>
                               {r.department?.departmentName || "General"}
                             </span>
                           </td>
@@ -873,7 +873,7 @@ function AdminDashboard() {
                           <td>₹{r.pricePerProduct?.toLocaleString()}</td>
                           <td><strong style={{ color: "#0284c7" }}>₹{r.totalPrice?.toLocaleString()}</strong></td>
                           <td>
-                            <span style={{ fontSize: "12px", color: "#64748b" }}>
+                            <span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>
                               {r.createdDate ? new Date(r.createdDate).toLocaleDateString() : "—"}
                             </span>
                           </td>
@@ -885,9 +885,9 @@ function AdminDashboard() {
                                 className="action-button"
                                 title="View Requisition Details"
                                 onClick={() => setSelectedDetailProduct(r)}
-                                style={{ background: "#f8fafc", color: "#334155", border: "1px solid #cbd5e1" }}
+                                className="admin-action-btn view"
                               >
-                                <Eye size={14} /> View
+                                <Eye size={14} />
                               </button>
 
                               {/* Pending -> Approve & Reject */}
@@ -907,7 +907,7 @@ function AdminDashboard() {
                                     title="Reject Requisition"
                                     disabled={actionLoading === r.productId}
                                     onClick={() => handleOpenRejectModal(r)}
-                                    style={{ background: "#fee2e2", color: "#b91c1c", border: "1px solid #fecaca" }}
+                                    style={{ background: "rgba(239, 68, 68, 0.1)", color: "#b91c1c", border: "1px solid #fecaca" }}
                                   >
                                     <X size={14} /> Reject
                                   </button>
@@ -921,7 +921,7 @@ function AdminDashboard() {
                                     className="action-button"
                                     title="Select Supplier Partner"
                                     onClick={() => handleOpenSupplierSelection(r)}
-                                    style={{ background: "#e0f2fe", color: "#0284c7", border: "1px solid #bae6fd" }}
+                                    style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0284c7", border: "1px solid #bae6fd" }}
                                   >
                                     <Building2 size={14} /> Select Supplier
                                   </button>
@@ -934,7 +934,7 @@ function AdminDashboard() {
                                       setPaymentMethod("UPI");
                                       setPaymentStep("INPUT");
                                     }}
-                                    style={{ background: "#0284c7", color: "#ffffff", border: "1px solid #0284c7" }}
+                                    style={{ background: "#0284c7", color: "var(--sp-card-bg)", border: "1px solid #0284c7" }}
                                   >
                                     <CreditCard size={14} /> Make Payment
                                   </button>
@@ -954,7 +954,7 @@ function AdminDashboard() {
                       <tr>
                         <td colSpan="10" style={{ textAlign: "center", padding: "40px" }}>
                           <Package size={36} color="#94a3b8" style={{ margin: "0 auto 10px" }} />
-                          <div style={{ color: "#0f172a", fontWeight: "700" }}>No requisitions found</div>
+                          <div style={{ color: "var(--sp-text-main)", fontWeight: "700" }}>No requisitions found</div>
                         </td>
                       </tr>
                     )}
@@ -965,7 +965,7 @@ function AdminDashboard() {
               {/* Pagination */}
               {totalPages > 1 && (
                 <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", padding: "16px 20px", borderTop: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "13px", color: "#64748b" }}>
+                  <span style={{ fontSize: "13px", color: "var(--sp-text-muted)" }}>
                     Showing page <b>{currentPage}</b> of <b>{totalPages}</b> ({totalItems} requisitions in ASC order)
                   </span>
                   <div style={{ display: "flex", gap: "6px" }}>
@@ -1025,7 +1025,7 @@ function AdminDashboard() {
                   <tbody>
                     {allOrders.length === 0 ? (
                       <tr>
-                        <td colSpan="11" style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
+                        <td colSpan="11" style={{ textAlign: "center", padding: "40px", color: "var(--sp-text-muted)" }}>
                           No enterprise orders recorded yet.
                         </td>
                       </tr>
@@ -1034,21 +1034,21 @@ function AdminDashboard() {
                         <tr key={o.orderId || o.id}>
                           <td><span style={{ fontFamily: "monospace", fontWeight: "800", color: "#0284c7" }}>{o.orderId}</span></td>
                           <td>REQ-{o.product?.productId || o.productId || "—"}</td>
-                          <td><strong style={{ color: "#0f172a" }}>{o.productName}</strong></td>
+                          <td><strong style={{ color: "var(--sp-text-main)" }}>{o.productName}</strong></td>
                           <td>{o.user?.username || o.userName || "Employee"}</td>
                           <td><strong>{o.supplier?.supplierName || o.supplierName || "Supplier"}</strong></td>
                           <td>{o.quantity}</td>
                           <td><strong style={{ color: "#0284c7" }}>₹{o.totalAmount?.toLocaleString()}</strong></td>
                           <td><span style={{ color: "#15803d", fontWeight: "700" }}>✓ {o.paymentStatus || "COMPLETED"}</span></td>
                           <td>{getStatusBadge(o.status)}</td>
-                          <td><span style={{ fontSize: "12px", color: "#64748b" }}>{o.orderDate ? new Date(o.orderDate).toLocaleDateString() : "—"}</span></td>
+                          <td><span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>{o.orderDate ? new Date(o.orderDate).toLocaleDateString() : "—"}</span></td>
                           <td style={{ textAlign: "center" }}>
                             <button
                               className="action-button"
                               onClick={() => setSelectedOrderDetails(o)}
-                              style={{ background: "#f8fafc", color: "#0284c7", border: "1px solid #cbd5e1" }}
+                              className="admin-action-btn view"
                             >
-                              <Eye size={14} /> View
+                              <Eye size={14} />
                             </button>
                           </td>
                         </tr>
@@ -1094,8 +1094,8 @@ function AdminDashboard() {
                       suppliers.map(s => (
                         <tr key={s.supplierId}>
                           <td>
-                            <strong style={{ color: "#0f172a" }}>{s.supplierName}</strong>
-                            <div style={{ fontSize: "11px", color: "#64748b" }}>{s.email} • {s.phone}</div>
+                            <strong style={{ color: "var(--sp-text-main)" }}>{s.supplierName}</strong>
+                            <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{s.email} • {s.phone}</div>
                           </td>
                           <td>0</td>
                           <td>0</td>
@@ -1111,8 +1111,8 @@ function AdminDashboard() {
                       supplierPerformances.map(sp => (
                         <tr key={sp.supplierId}>
                           <td>
-                            <strong style={{ color: "#0f172a" }}>{sp.supplierName}</strong>
-                            <div style={{ fontSize: "11px", color: "#64748b" }}>{sp.email} • {sp.phone}</div>
+                            <strong style={{ color: "var(--sp-text-main)" }}>{sp.supplierName}</strong>
+                            <div style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>{sp.email} • {sp.phone}</div>
                           </td>
                           <td><strong>{sp.totalOrders}</strong></td>
                           <td><span style={{ color: "#f59e0b", fontWeight: "700" }}>{sp.pendingOrders}</span></td>
@@ -1175,7 +1175,7 @@ function AdminDashboard() {
                   <tbody>
                     {payments.length === 0 ? (
                       <tr>
-                        <td colSpan="8" style={{ textAlign: "center", padding: "40px", color: "#64748b" }}>
+                        <td colSpan="8" style={{ textAlign: "center", padding: "40px", color: "var(--sp-text-muted)" }}>
                           No payment records found.
                         </td>
                       </tr>
@@ -1187,8 +1187,8 @@ function AdminDashboard() {
                           <td>{p.supplier?.supplierName || "Supplier Partner"}</td>
                           <td>{p.account?.accountHolderName || "Corporate Treasury Account"}</td>
                           <td><strong style={{ color: "#0284c7" }}>₹{p.amount?.toLocaleString()}</strong></td>
-                          <td><span style={{ background: "#e0f2fe", color: "#0284c7", padding: "2px 8px", borderRadius: "6px", fontWeight: "700", fontSize: "11px" }}>{p.paymentMethod || "UPI"}</span></td>
-                          <td><span style={{ fontSize: "12px", color: "#64748b" }}>{p.paymentDate ? new Date(p.paymentDate).toLocaleString() : "—"}</span></td>
+                          <td><span style={{ background: "rgba(14, 165, 233, 0.1)", color: "#0284c7", padding: "2px 8px", borderRadius: "6px", fontWeight: "700", fontSize: "11px" }}>{p.paymentMethod || "UPI"}</span></td>
+                          <td><span style={{ fontSize: "12px", color: "var(--sp-text-muted)" }}>{p.paymentDate ? new Date(p.paymentDate).toLocaleString() : "—"}</span></td>
                           <td><span style={{ color: "#15803d", fontWeight: "800" }}>✓ {p.paymentStatus || "COMPLETED"}</span></td>
                         </tr>
                       ))
@@ -1216,11 +1216,11 @@ function AdminDashboard() {
             </div>
 
             <div className="admin-modal-body" style={{ padding: "20px 24px" }}>
-              <p style={{ fontSize: "13px", color: "#64748b", margin: "0 0 14px" }}>
+              <p style={{ fontSize: "13px", color: "var(--sp-text-muted)", margin: "0 0 14px" }}>
                 Please specify the reason for rejecting <b>{rejectingProduct.name}</b> requested by {rejectingProduct.user?.username}.
               </p>
 
-              <label style={{ display: "block", fontSize: "12px", fontWeight: "700", color: "#0f172a", marginBottom: "6px" }}>
+              <label style={{ display: "block", fontSize: "12px", fontWeight: "700", color: "var(--sp-text-main)", marginBottom: "6px" }}>
                 Rejection Reason *
               </label>
               <textarea
@@ -1270,14 +1270,14 @@ function AdminDashboard() {
             </div>
 
             <div className="admin-modal-body" style={{ padding: "20px 24px" }}>
-              <div style={{ background: "#f8fafc", padding: "14px", borderRadius: "10px", border: "1px solid #e2e8f0", marginBottom: "16px" }}>
+              <div style={{ background: "var(--sp-card-surface)", padding: "14px", borderRadius: "10px", border: "1px solid #e2e8f0", marginBottom: "16px" }}>
                 <div style={{ fontSize: "13px", marginBottom: "4px" }}>Product: <b>{supplierSelectionProduct.name}</b></div>
                 <div style={{ fontSize: "13px", marginBottom: "4px" }}>Quantity: <b>{supplierSelectionProduct.numberOfQuantities} units</b></div>
                 <div style={{ fontSize: "13px", marginBottom: "4px" }}>Unit Price: <b>₹{supplierSelectionProduct.pricePerProduct?.toLocaleString()}</b></div>
                 <div style={{ fontSize: "15px", color: "#0284c7", fontWeight: "800" }}>Total Amount: ₹{supplierSelectionProduct.totalPrice?.toLocaleString()}</div>
               </div>
 
-              <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
+              <label style={{ display: "block", fontSize: "13px", fontWeight: "700", color: "var(--sp-text-main)", marginBottom: "8px" }}>
                 Choose Verified Supplier Partner *
               </label>
               <select
@@ -1330,24 +1330,24 @@ function AdminDashboard() {
             {paymentStep === "SUCCESS" ? (
               <div style={{ textAlign: "center", padding: "36px 24px" }}>
                 <CheckCircle size={56} color="#10b981" style={{ margin: "0 auto 14px" }} />
-                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "#0f172a", margin: "0 0 6px" }}>
+                <h3 style={{ fontSize: "20px", fontWeight: "800", color: "var(--sp-text-main)", margin: "0 0 6px" }}>
                   Payment Successful!
                 </h3>
-                <p style={{ fontSize: "14px", color: "#64748b", margin: "0 0 20px" }}>
+                <p style={{ fontSize: "14px", color: "var(--sp-text-muted)", margin: "0 0 20px" }}>
                   Order <b>#{completedOrderInfo?.orderId}</b> has been placed successfully with {completedOrderInfo?.supplierName}.
                 </p>
 
-                <div style={{ background: "#f8fafc", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0", textAlign: "left", fontSize: "13px", marginBottom: "24px" }}>
+                <div style={{ background: "var(--sp-card-surface)", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0", textAlign: "left", fontSize: "13px", marginBottom: "24px" }}>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                    <span style={{ color: "#64748b" }}>Transaction ID:</span>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Transaction ID:</span>
                     <strong style={{ fontFamily: "monospace" }}>{completedOrderInfo?.transactionId}</strong>
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between", marginBottom: "6px" }}>
-                    <span style={{ color: "#64748b" }}>Disbursed Amount:</span>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Disbursed Amount:</span>
                     <strong style={{ color: "#0284c7" }}>₹{completedOrderInfo?.amount?.toLocaleString()}</strong>
                   </div>
                   <div style={{ display: "flex", justifyContent: "space-between" }}>
-                    <span style={{ color: "#64748b" }}>Fulfillment Partner:</span>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Fulfillment Partner:</span>
                     <strong>{completedOrderInfo?.supplierName}</strong>
                   </div>
                 </div>
@@ -1373,34 +1373,34 @@ function AdminDashboard() {
             ) : (
               <div className="admin-modal-body" style={{ padding: "20px 24px", display: "flex", flexDirection: "column", gap: "18px" }}>
                 {/* Payment Overview */}
-                <div style={{ background: "#f8fafc", padding: "14px", borderRadius: "10px", border: "1px solid #e2e8f0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", fontSize: "12px" }}>
+                <div style={{ background: "var(--sp-card-surface)", padding: "14px", borderRadius: "10px", border: "1px solid #e2e8f0", display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px", fontSize: "12px" }}>
                   <div>
-                    <span style={{ color: "#64748b" }}>Product:</span>
-                    <div style={{ fontWeight: "700", color: "#0f172a" }}>{paymentProduct.name}</div>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Product:</span>
+                    <div style={{ fontWeight: "700", color: "var(--sp-text-main)" }}>{paymentProduct.name}</div>
                   </div>
                   <div>
-                    <span style={{ color: "#64748b" }}>Supplier:</span>
-                    <div style={{ fontWeight: "700", color: "#0f172a" }}>{paymentSupplier?.supplierName || "Supplier Partner"}</div>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Supplier:</span>
+                    <div style={{ fontWeight: "700", color: "var(--sp-text-main)" }}>{paymentSupplier?.supplierName || "Supplier Partner"}</div>
                   </div>
                   <div>
-                    <span style={{ color: "#64748b" }}>Requester:</span>
-                    <div style={{ fontWeight: "700", color: "#0f172a" }}>{paymentProduct.user?.username || "Employee"}</div>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Requester:</span>
+                    <div style={{ fontWeight: "700", color: "var(--sp-text-main)" }}>{paymentProduct.user?.username || "Employee"}</div>
                   </div>
                   <div>
-                    <span style={{ color: "#64748b" }}>Quantity & Rate:</span>
-                    <div style={{ fontWeight: "700", color: "#0f172a" }}>{paymentProduct.numberOfQuantities} × ₹{paymentProduct.pricePerProduct?.toLocaleString()}</div>
+                    <span style={{ color: "var(--sp-text-muted)" }}>Quantity & Rate:</span>
+                    <div style={{ fontWeight: "700", color: "var(--sp-text-main)" }}>{paymentProduct.numberOfQuantities} × ₹{paymentProduct.pricePerProduct?.toLocaleString()}</div>
                   </div>
                 </div>
 
                 {/* Total Disbursement Banner */}
-                <div style={{ padding: "14px 18px", background: "#f0f9ff", border: "1px solid #bae6fd", borderRadius: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#0369a1" }}>Total Disbursement Amount</span>
+                <div style={{ padding: "14px 18px", background: "rgba(56,189,248,0.1)", border: "1px solid #bae6fd", borderRadius: "10px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                  <span style={{ fontSize: "13px", fontWeight: "700", color: "#0ea5e9" }}>Total Disbursement Amount</span>
                   <span style={{ fontSize: "20px", fontWeight: "900", color: "#0284c7" }}>₹{paymentProduct.totalPrice?.toLocaleString()}</span>
                 </div>
 
                 {/* Payment Method Selector */}
                 <div>
-                  <label style={{ display: "block", fontSize: "12px", fontWeight: "700", color: "#0f172a", marginBottom: "8px" }}>
+                  <label style={{ display: "block", fontSize: "12px", fontWeight: "700", color: "var(--sp-text-main)", marginBottom: "8px" }}>
                     Select Corporate Payment Method
                   </label>
                   <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "10px" }}>
@@ -1411,8 +1411,8 @@ function AdminDashboard() {
                         padding: "12px",
                         borderRadius: "8px",
                         border: paymentMethod === "UPI" ? "2px solid #0284c7" : "1px solid #cbd5e1",
-                        background: paymentMethod === "UPI" ? "#e0f2fe" : "#ffffff",
-                        color: paymentMethod === "UPI" ? "#0284c7" : "#334155",
+                        background: paymentMethod === "UPI" ? "rgba(14, 165, 233, 0.1)" : "var(--sp-card-bg)",
+                        color: paymentMethod === "UPI" ? "#0284c7" : "var(--sp-text-main)",
                         fontWeight: "800",
                         fontSize: "13px",
                         cursor: "pointer",
@@ -1432,8 +1432,8 @@ function AdminDashboard() {
                         padding: "12px",
                         borderRadius: "8px",
                         border: paymentMethod === "QR" ? "2px solid #0284c7" : "1px solid #cbd5e1",
-                        background: paymentMethod === "QR" ? "#e0f2fe" : "#ffffff",
-                        color: paymentMethod === "QR" ? "#0284c7" : "#334155",
+                        background: paymentMethod === "QR" ? "rgba(14, 165, 233, 0.1)" : "var(--sp-card-bg)",
+                        color: paymentMethod === "QR" ? "#0284c7" : "var(--sp-text-main)",
                         fontWeight: "800",
                         fontSize: "13px",
                         cursor: "pointer",
@@ -1451,7 +1451,7 @@ function AdminDashboard() {
                 {/* UPI Mode */}
                 {paymentMethod === "UPI" && (
                   <div style={{ display: "flex", flexDirection: "column", gap: "8px" }}>
-                    <label style={{ fontSize: "12px", fontWeight: "700", color: "#0f172a" }}>Corporate UPI ID *</label>
+                    <label style={{ fontSize: "12px", fontWeight: "700", color: "var(--sp-text-main)" }}>Corporate UPI ID *</label>
                     <input
                       type="text"
                       placeholder="e.g. admin@okhdfcbank"
@@ -1465,7 +1465,7 @@ function AdminDashboard() {
                         fontWeight: "600"
                       }}
                     />
-                    <span style={{ fontSize: "11px", color: "#64748b" }}>
+                    <span style={{ fontSize: "11px", color: "var(--sp-text-muted)" }}>
                       Instant bank settlement will be executed via corporate UPI gateway.
                     </span>
                   </div>
@@ -1474,7 +1474,7 @@ function AdminDashboard() {
                 {/* QR Code Mode */}
                 {paymentMethod === "QR" && (
                   <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: "10px", padding: "10px 0" }}>
-                    <span style={{ fontSize: "13px", fontWeight: "700", color: "#0f172a" }}>
+                    <span style={{ fontSize: "13px", fontWeight: "700", color: "var(--sp-text-main)" }}>
                       Scan QR Code to Pay
                     </span>
                     <QRCodeDisplay
@@ -1483,7 +1483,7 @@ function AdminDashboard() {
                       amount={paymentProduct.totalPrice}
                       orderId={`REQ-${paymentProduct.productId}`}
                     />
-                    <span style={{ fontSize: "12px", color: "#64748b", textAlign: "center" }}>
+                    <span style={{ fontSize: "12px", color: "var(--sp-text-muted)", textAlign: "center" }}>
                       Scan this QR code using any supported UPI application.
                     </span>
                   </div>
@@ -1543,20 +1543,20 @@ function AdminDashboard() {
             </div>
 
             <div className="admin-modal-body" style={{ padding: "20px 24px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", background: "#f8fafc", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Product Name:</span><div style={{ fontWeight: "800", color: "#0f172a" }}>{selectedDetailProduct.name}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Category:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.category?.categoryName || "General"}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Requested By:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.user?.username || "Employee"}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Department:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.department?.departmentName || "General"}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Quantity:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.numberOfQuantities} units</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Unit Price:</span><div style={{ fontWeight: "700" }}>₹{selectedDetailProduct.pricePerProduct?.toLocaleString()}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Total Amount:</span><div style={{ fontWeight: "900", color: "#0284c7", fontSize: "16px" }}>₹{selectedDetailProduct.totalPrice?.toLocaleString()}</div></div>
-                <div><span style={{ color: "#64748b", fontSize: "12px" }}>Status:</span><div>{getStatusBadge(selectedDetailProduct.status)}</div></div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", background: "var(--sp-card-surface)", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0" }}>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Product Name:</span><div style={{ fontWeight: "800", color: "var(--sp-text-main)" }}>{selectedDetailProduct.name}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Category:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.category?.categoryName || "General"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Requested By:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.user?.username || "Employee"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Department:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.department?.departmentName || "General"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Quantity:</span><div style={{ fontWeight: "700" }}>{selectedDetailProduct.numberOfQuantities} units</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Unit Price:</span><div style={{ fontWeight: "700" }}>₹{selectedDetailProduct.pricePerProduct?.toLocaleString()}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Total Amount:</span><div style={{ fontWeight: "900", color: "#0284c7", fontSize: "16px" }}>₹{selectedDetailProduct.totalPrice?.toLocaleString()}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)", fontSize: "12px" }}>Status:</span><div>{getStatusBadge(selectedDetailProduct.status)}</div></div>
               </div>
               {selectedDetailProduct.description && (
-                <div style={{ marginTop: "14px", background: "#ffffff", padding: "12px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
-                  <span style={{ fontSize: "11px", fontWeight: "700", color: "#64748b", textTransform: "uppercase" }}>Business Justification</span>
-                  <p style={{ margin: "4px 0 0", color: "#334155", fontSize: "13px" }}>{selectedDetailProduct.description}</p>
+                <div style={{ marginTop: "14px", background: "var(--sp-card-bg)", padding: "12px", borderRadius: "8px", border: "1px solid #e2e8f0" }}>
+                  <span style={{ fontSize: "11px", fontWeight: "700", color: "var(--sp-text-muted)", textTransform: "uppercase" }}>Business Justification</span>
+                  <p style={{ margin: "4px 0 0", color: "var(--sp-text-main)", fontSize: "13px" }}>{selectedDetailProduct.description}</p>
                 </div>
               )}
             </div>
@@ -1585,15 +1585,15 @@ function AdminDashboard() {
             </div>
 
             <div className="admin-modal-body" style={{ padding: "20px 24px" }}>
-              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", background: "#f8fafc", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0", fontSize: "13px" }}>
-                <div><span style={{ color: "#64748b" }}>Order ID:</span><div style={{ fontWeight: "800", color: "#0284c7" }}>{selectedOrderDetails.orderId}</div></div>
-                <div><span style={{ color: "#64748b" }}>Request Ref:</span><div style={{ fontWeight: "700" }}>REQ-{selectedOrderDetails.product?.productId || selectedOrderDetails.productId || "—"}</div></div>
-                <div><span style={{ color: "#64748b" }}>Product Name:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.productName}</div></div>
-                <div><span style={{ color: "#64748b" }}>Supplier Partner:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.supplier?.supplierName || selectedOrderDetails.supplierName || "Partner"}</div></div>
-                <div><span style={{ color: "#64748b" }}>Requester:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.user?.username || "Employee"}</div></div>
-                <div><span style={{ color: "#64748b" }}>Quantity:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.quantity} units</div></div>
-                <div><span style={{ color: "#64748b" }}>Disbursed Amount:</span><div style={{ fontWeight: "900", color: "#0284c7" }}>₹{selectedOrderDetails.totalAmount?.toLocaleString()}</div></div>
-                <div><span style={{ color: "#64748b" }}>Order Status:</span><div>{getStatusBadge(selectedOrderDetails.status)}</div></div>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: "12px", background: "var(--sp-card-surface)", padding: "16px", borderRadius: "10px", border: "1px solid #e2e8f0", fontSize: "13px" }}>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Order ID:</span><div style={{ fontWeight: "800", color: "#0284c7" }}>{selectedOrderDetails.orderId}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Request Ref:</span><div style={{ fontWeight: "700" }}>REQ-{selectedOrderDetails.product?.productId || selectedOrderDetails.productId || "—"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Product Name:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.productName}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Supplier Partner:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.supplier?.supplierName || selectedOrderDetails.supplierName || "Partner"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Requester:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.user?.username || "Employee"}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Quantity:</span><div style={{ fontWeight: "700" }}>{selectedOrderDetails.quantity} units</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Disbursed Amount:</span><div style={{ fontWeight: "900", color: "#0284c7" }}>₹{selectedOrderDetails.totalAmount?.toLocaleString()}</div></div>
+                <div><span style={{ color: "var(--sp-text-muted)" }}>Order Status:</span><div>{getStatusBadge(selectedOrderDetails.status)}</div></div>
               </div>
             </div>
 
